@@ -29,7 +29,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@formbricks/js": "^2.2.0",
 		"iconify-icon": "^2.1.0"
 	}
 }
