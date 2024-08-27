@@ -1,0 +1,40 @@
+{
+	"[svelte]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 4,
+		"editor.formatOnSave": true
+	},
+	"emmet.includeLanguages": {
+		"svelte": "html"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit",
+		"source.organizeImports": "explicit"
+	},
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		"package.json": ".prettier*, .npmrc, .gitignore, .env, package*, *config.js, *config.ts, *config.cjs, README*, tsconfig.json, components.json, .eslint*"
+	},
+	"explorer.sortOrder": "default",
+	"workbench.colorCustomizations": {
+		"editor.background": "#121212",
+		"gitDecoration.modifiedResourceForeground": "#5e5800",
+		"gitDecoration.untrackedResourceForeground": "#4c839f",
+		"list.activeSelectionBackground": "#121212",
+		"list.activeSelectionForeground": "#ff5000",
+		"list.errorForeground": "#a34646",
+		"list.focusAndSelectionOutline": "#00000000",
+		"list.hoverBackground": "#00000000",
+		"list.hoverForeground": "#ff5000",
+		"list.inactiveSelectionBackground": "#121212",
+		"list.inactiveSelectionForeground": "#ff5000",
+		"list.warningForeground": "#7d793d",
+		"sideBar.background": "#181818",
+		"sideBar.foreground": "#606060",
+		"symbolIcon.keywordForeground": "#000000"
+	}
+}
