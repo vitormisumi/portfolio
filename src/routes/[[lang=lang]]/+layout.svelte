@@ -33,13 +33,27 @@
 
 	let innerWidth = $state(0);
 	let innerHeight = $state(0);
+
+	const technologies = [
+		'html5',
+		'javascript',
+		'svelte',
+		'tailwindcss',
+		'typescript',
+		'postgresql',
+		'supabase',
+		'vercel',
+		'sanity',
+		'python',
+		'figma'
+	];
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 {#if pageLoaded}
 	<header
-		class=" bg-gradient-to-b from-[#05090A] to-transparent p-4 landscape:p-8"
-		in:slide={{ delay: 6000, duration: 1000 }}>
+		class=" to-transparent bg-gradient-to-b from-[#05090A] p-4 landscape:p-8"
+		in:slide={{ delay: 0, duration: 1000 }}>
 		<button class="text-secondary landscape:hidden" onclick={toggleMenu}>
 			<iconify-icon icon="mdi:menu"></iconify-icon>
 		</button>
@@ -53,7 +67,7 @@
 					Vitor Misumi
 				</a>
 				<nav
-					class="flex w-1/2 flex-col justify-around font-jet text-sm text-secondary landscape:flex-row landscape:text-base">
+					class="flex w-1/2 flex-col justify-around gap-2 font-jet text-sm text-secondary landscape:flex-row landscape:text-base">
 					<a
 						href="/{lang}/about"
 						class="transition-colors hover:text-accent {route === 'about'
@@ -85,46 +99,22 @@
 	<footer
 		class="fixed bottom-0 left-0 flex w-full items-center border-t border-primary text-2xl text-primary"
 		in:slide={{ delay: 6000, duration: 1000 }}>
-		<a href="https://github.com/vitormisumi" class="flex items-center border-r px-3 md:px-8 py-2 md:py-4">
+		<a
+			href="https://github.com/vitormisumi"
+			class="flex items-center border-r px-3 py-2 md:px-8 md:py-4">
 			<iconify-icon icon="mdi:github"></iconify-icon>
 		</a>
-		<a href="https://www.linkedin.com/in/vitormisumi/" class="flex items-center border-r px-3 md:px-8 py-2 md:py-4">
+		<a
+			href="https://www.linkedin.com/in/vitormisumi/"
+			class="flex items-center border-r px-3 py-2 md:px-8 md:py-4">
 			<iconify-icon icon="mdi:linkedin"></iconify-icon>
 		</a>
 		<ul class="flex w-full items-center justify-around text-xl text-secondary">
-			<li>
-				<i class="devicon-html5-plain"></i>
-			</li>
-			<li>
-				<i class="devicon-javascript-plain"></i>
-			</li>
-			<li>
-				<i class="devicon-svelte-plain"></i>
-			</li>
-			<li>
-				<i class="devicon-tailwindcss-original"></i>
-			</li>
-			<li>
-				<i class="devicon-typescript-plain"></i>
-			</li>
-			<li>
-				<i class="devicon-postgresql-plain"></i>
-			</li>
-			<li>
-				<i class="devicon-supabase-plain"></i>
-			</li>
-			<li>
-				<i class="devicon-vercel-original"></i>
-			</li>
-			<li>
-				<i class="devicon-sanity-plain"></i>
-			</li>
-			<li>
-				<i class="devicon-python-plain"></i>
-			</li>
-			<li>
-				<i class="devicon-figma-plain"></i>
-			</li>
+			{#each technologies as technology}
+				<li>
+					<i class="devicon-{technology}-plain"></i>
+				</li>
+			{/each}
 		</ul>
 	</footer>
 {/if}
