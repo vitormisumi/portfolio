@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	import 'iconify-icon';
 	import '../app.css';
 
-    let { children } = $props();
+	let { children } = $props();
 </script>
 
 {@render children()}

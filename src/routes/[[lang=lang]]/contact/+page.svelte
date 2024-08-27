@@ -1,6 +1,6 @@
 <script lang="ts">
 	import formbricks from '@formbricks/js/website';
-
+    
 	if (typeof window !== 'undefined') {
 		formbricks.init({
 			environmentId: 'cm0cr8u1a0008e68q7901w2tw',
@@ -8,5 +8,3 @@
 		});
 	}
 </script>
-
-<h1>Contato</h1>
