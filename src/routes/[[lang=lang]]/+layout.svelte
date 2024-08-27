@@ -53,7 +53,7 @@
 {#if pageLoaded}
 	<header
 		class=" to-transparent bg-gradient-to-b from-[#05090A] p-4 landscape:p-8"
-		in:slide={{ delay: 0, duration: 1000 }}>
+		in:slide={{ delay: 6000, duration: 1000 }}>
 		<button class="text-secondary landscape:hidden" onclick={toggleMenu}>
 			<iconify-icon icon="mdi:menu"></iconify-icon>
 		</button>
