@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
-	import code from '$lib/assets/code.png';
-	import profile from '$lib/assets/profile.png';
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+
+	let { data } = $props();
+
+	$inspect(data);
 
 	let pageLoaded = $state(false);
 	let duration = $state(0);
@@ -36,10 +38,10 @@
 		<div class="flex h-44 max-w-lg flex-col justify-end lg:h-72">
 			<div class="relative flex h-full flex-col items-center justify-end">
 				<div class="relative w-full" in:fly={{ y: 500, duration: duration }}>
-					<p class="pl-5 lg:pl-0 w-full text-xs text-accent lg:text-base">
-						Prazer! Sou
+					<p class="w-full pl-5 text-xs text-accent lg:pl-0 lg:text-base">
+						{data.home.translations[0].welcome_message}
 					</p>
-					<svg width="100%" class="absolute -z-10 h-8 text-4xl lg:h-12 lg:text-6xl">
+					<svg width="100%" class="absolute -z-10 h-8 text-4xl uppercase lg:h-12 lg:text-6xl">
 						<text
 							x="50%"
 							y="50%"
@@ -50,10 +52,10 @@
 							fill="#F74C03"
 							stroke="#F74C03"
 							stroke-width="1">
-							VITOR MISUMI
+							{data.home.name}
 						</text>
 					</svg>
-					<svg width="100%" class="h-8 text-4xl lg:h-12 lg:text-6xl">
+					<svg width="100%" class="h-8 text-4xl uppercase lg:h-12 lg:text-6xl">
 						<text
 							x="50%"
 							y="50%"
@@ -64,28 +66,28 @@
 							fill="none"
 							stroke="#F74C03"
 							stroke-width="1">
-							VITOR MISUMI
+							{data.home.name}
 						</text>
 					</svg>
 				</div>
 				<img
-					src={profile}
-					alt="Vitor Misumi"
+					src="https://directus.vitormisumi.com/assets/{data.home.profile_image}?width=300"
+					alt={data.home.name}
 					class="absolute -z-10 h-full shadow-secondary drop-shadow-[0_0_4px_rgba(255,252,242,0.2)]"
 					in:fly={{ x: 500, duration: duration, delay: profileImageDelay }} />
 			</div>
 			<p
 				class="text-center text-xs font-extralight tracking-tight text-primary lg:text-lg lg:tracking-wide"
 				in:fade={{ duration: duration, delay: textDelay }}>
-				Desenvolvedor web baseado em Porto, PT
+				{data.home.translations[0].subtitle}
 			</p>
 		</div>
 		<div
-			class="h-48 w-full max-w-xs lg:max-w-lg rounded-lg border border-[#333333] bg-[#0B0F10] lg:h-72"
+			class="h-48 w-full max-w-xs rounded-lg border border-[#333333] bg-[#0B0F10] lg:h-72 lg:max-w-lg"
 			in:fade={{ delay: projectsDelay }}>
 		</div>
 		<img
-			src={code}
+			src="https://directus.vitormisumi.com/assets/{data.home.bg_image}"
 			alt="Linhas de código"
 			class="absolute left-0 top-12 -z-20 opacity-10 lg:left-12 lg:h-4/5"
 			in:fade={{ delay: codeImageDelay }} />

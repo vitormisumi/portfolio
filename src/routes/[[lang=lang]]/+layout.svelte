@@ -33,20 +33,6 @@
 
 	let innerWidth = $state(0);
 	let innerHeight = $state(0);
-
-	const technologies = [
-		'html5',
-		'javascript',
-		'svelte',
-		'tailwindcss',
-		'typescript',
-		'postgresql',
-		'supabase',
-		'vercel',
-		'sanity',
-		'python',
-		'figma'
-	];
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -64,7 +50,7 @@
 				<a
 					href="/{lang}"
 					class="font-roboto text-base font-medium uppercase text-secondary landscape:text-xl">
-					Vitor Misumi
+					{data.home.name}
 				</a>
 				<nav
 					class="flex w-1/2 flex-col justify-around gap-2 font-jet text-sm text-secondary landscape:flex-row landscape:text-base">
@@ -100,19 +86,19 @@
 		class="fixed bottom-0 left-0 flex w-full items-center border-t border-primary text-2xl text-primary"
 		in:slide={{ delay: 6000, duration: 1000 }}>
 		<a
-			href="https://github.com/vitormisumi"
+			href={data.home.github}
 			class="flex items-center border-r px-3 py-2 md:px-8 md:py-4">
 			<iconify-icon icon="mdi:github"></iconify-icon>
 		</a>
 		<a
-			href="https://www.linkedin.com/in/vitormisumi/"
+			href={data.home.linkedin}
 			class="flex items-center border-r px-3 py-2 md:px-8 md:py-4">
 			<iconify-icon icon="mdi:linkedin"></iconify-icon>
 		</a>
 		<ul class="flex w-full items-center justify-around text-xl text-secondary">
-			{#each technologies as technology}
+			{#each data.technologies as technology}
 				<li>
-					<i class="devicon-{technology}-plain"></i>
+					<i class="devicon-{technology.name}-plain"></i>
 				</li>
 			{/each}
 		</ul>
