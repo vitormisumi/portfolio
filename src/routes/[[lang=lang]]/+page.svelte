@@ -5,8 +5,6 @@
 
 	let { data } = $props();
 
-	$inspect(data);
-
 	let pageLoaded = $state(false);
 	let duration = $state(0);
 	let codeImageDelay = $state(0);
@@ -89,7 +87,7 @@
 		<img
 			src="https://directus.vitormisumi.com/assets/{data.home.bg_image}"
 			alt="Linhas de código"
-			class="absolute left-0 top-12 -z-20 opacity-10 lg:left-12 lg:h-4/5"
+			class="absolute left-0 top-12 -z-20 opacity-10 lg:left-12 lg:h-4/5 rounded-none"
 			in:fade={{ delay: codeImageDelay }} />
 	</div>
 {/if}
