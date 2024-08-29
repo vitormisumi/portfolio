@@ -4,10 +4,10 @@
 
 @layer base {
 	h1 {
-		@apply text-secondary font-roboto text-xl font-medium;
+		@apply font-roboto text-xl font-medium text-secondary;
 	}
 	h2 {
-		@apply text-xl;
+		@apply font-roboto text-xl font-medium text-primary;
 	}
 	p {
 		@apply font-jet;
