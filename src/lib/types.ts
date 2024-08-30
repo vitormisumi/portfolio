@@ -57,4 +57,5 @@ export interface Project {
     end_date: string;
     translations: ProjectTranslation[];
     images: ProjectImage[]
+    images_frame: 'mobile' | 'desktop'
 }

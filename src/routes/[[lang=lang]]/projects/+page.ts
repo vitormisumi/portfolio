@@ -18,7 +18,7 @@ export async function load({ fetch, params }) {
 						}
 					}
 				},
-				fields: ['*', { translations: ['*'] }]
+				fields: ['*.*', { translations: ['*'] }]
 			})
 		)
 	} as unknown as { projects: Project[] };
