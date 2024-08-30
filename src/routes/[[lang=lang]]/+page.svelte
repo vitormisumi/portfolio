@@ -23,11 +23,11 @@
 			textDelay = 0;
 			projectsDelay = 0;
 		} else {
-			// duration = 1500;
-			// codeImageDelay = 6000;
-			// profileImageDelay = 1500;
-			// textDelay = 3000;
-			// projectsDelay = 4500;
+			duration = 1500;
+			codeImageDelay = 6000;
+			profileImageDelay = 1500;
+			textDelay = 3000;
+			projectsDelay = 4500;
 		}
 		pageLoaded = true;
 
