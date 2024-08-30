@@ -5,7 +5,6 @@
 
 	let selectedProjectId = $state(data.projects[0].id);
 	let selectedImageId = $state(data.projects[0].images[0].id);
-	$inspect(data);
 </script>
 
 <div
@@ -13,9 +12,10 @@
 	<div class="h-full max-h-96">
 		<ul class="list-disc space-y-4 font-mono">
 			{#each data.projects as project, i}
-				<li class="hover:text-accent">
+				<li>
 					<button
-						class="list-item text-left {project.id === selectedProjectId
+						class="list-item text-left transition-colors hover:text-accent {project.id ===
+						selectedProjectId
 							? 'underline underline-offset-4'
 							: ''}"
 						onclick={() => {
@@ -49,7 +49,9 @@
 						</p>
 					</div>
 					<div class="flex gap-12">
-						<p class="w-full">{project.translations[0].description}</p>
+						<div class="w-full">
+							{@html project.translations[0].description}
+						</div>
 						<div>
 							{#each project.images as image, i}
 								{#if image.id === selectedImageId}

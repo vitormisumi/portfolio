@@ -18,7 +18,7 @@ export async function load({ fetch, params }) {
                         }
                     }
                 },
-                fields: ['*', { translations: ['*'] }]
+                fields: ['*.*', { translations: ['*'] }]
             })
         ),
         technologies: await directus.request(readItems('technologies'))
