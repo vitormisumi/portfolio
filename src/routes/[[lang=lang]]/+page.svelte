@@ -19,10 +19,10 @@
 			textDelay = 0;
 			projectsDelay = 0;
 		} else {
-			duration = 1500;
-			profileImageDelay = 1500;
-			textDelay = 3000;
-			projectsDelay = 4500;
+			// duration = 1500;
+			// profileImageDelay = 1500;
+			// textDelay = 3000;
+			// projectsDelay = 4500;
 		}
 		pageLoaded = true;
 	});
@@ -31,38 +31,38 @@
 {#if pageLoaded}
 	<div
 		class="fixed top-0 -z-10 flex h-screen w-full flex-col items-center justify-evenly landscape:flex-row">
-		<div class="flex h-44 w-full max-w-xs flex-col justify-end lg:h-80 lg:max-w-lg">
+		<div class="flex h-44 w-fit max-w-xs flex-col justify-end gap-2 lg:h-80 lg:max-w-lg">
 			<div class="relative flex h-full flex-col items-center justify-end">
 				<div class="relative w-full" in:fly={{ y: 500, duration: duration }}>
-					<p
-						class="w-full translate-x-2 pl-5 text-xs text-accent lg:translate-x-10 lg:pl-0 lg:text-base">
+					<p class="w-full text-xs text-primary lg:text-base">
 						{data.home.translations[0].welcome_message}
 					</p>
 					<h1>
-						<svg width="100%" class="absolute -z-10 h-8 text-4xl uppercase lg:h-12 lg:text-6xl">
+						<svg
+							class="absolute -z-10 h-8 w-[260px] text-4xl uppercase lg:h-12 lg:w-[435px] lg:text-6xl">
 							<text
 								x="50%"
-								y="48%"
+								y="50%"
 								text-anchor="middle"
 								dominant-baseline="central"
 								font-family="Roboto Mono"
 								font-weight="bold"
-								fill="#F74C03"
-								stroke="#F74C03"
+								fill="#FFFCF2"
+								stroke="#FFFCF2"
 								stroke-width="1">
 								{data.home.name}
 							</text>
 						</svg>
-						<svg width="100%" class="h-8 text-4xl uppercase lg:h-12 lg:text-6xl">
+						<svg class="h-8 w-[260px] text-4xl uppercase lg:h-12 lg:w-[435px] lg:text-6xl">
 							<text
 								x="50%"
-								y="48%"
+								y="50%"
 								text-anchor="middle"
 								dominant-baseline="central"
 								font-family="Roboto Mono"
 								font-weight="bold"
 								fill="none"
-								stroke="#F74C03"
+								stroke="#FFFCF2"
 								stroke-width="1">
 								{data.home.name}
 							</text>
@@ -81,6 +81,14 @@
 				in:fade={{ duration: duration, delay: textDelay }}>
 				{data.home.translations[0].subtitle}
 			</h2>
+			<div class="flex w-full justify-center gap-2 text-2xl text-secondary landscape:justify-start">
+				<a href="https://github.com/vitormisumi">
+					<iconify-icon icon="mdi:github"></iconify-icon>
+				</a>
+				<a href="https://www.linkedin.com/in/vitormisumi">
+					<iconify-icon icon="mdi:linkedin"></iconify-icon>
+				</a>
+			</div>
 		</div>
 		<Carousel {data} {projectsDelay} />
 	</div>

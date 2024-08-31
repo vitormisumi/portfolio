@@ -10,12 +10,12 @@
 		@apply font-roboto text-base font-medium text-primary landscape:text-xl;
 	}
 	p {
-		@apply font-jet text-xs landscape:text-base;
+		@apply text-secondary font-jet text-xs landscape:text-base font-extralight;
 	}
 	body {
 		@apply bg-background;
 	}
 	a {
-		@apply transition-colors hover:text-accent;
+		@apply transition-colors hover:text-accent text-secondary;
 	}
 }

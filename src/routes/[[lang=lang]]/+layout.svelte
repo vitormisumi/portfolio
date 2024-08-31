@@ -49,12 +49,12 @@
 				transition:slide>
 				<a
 					href="/{lang}"
-					class="font-roboto text-base font-medium uppercase text-secondary landscape:text-xl"
+					class="font-roboto text-base font-medium uppercase landscape:text-xl"
 					onclick={() => (showMenu = false)}>
 					{data.home.name}
 				</a>
 				<nav
-					class="flex w-1/2 flex-col justify-around gap-2 font-jet text-sm text-secondary landscape:flex-row landscape:text-base">
+					class="flex w-1/2 flex-col justify-around gap-2 font-jet text-sm landscape:flex-row landscape:text-base">
 					<a
 						href="/{lang}/about"
 						class={route === 'about' ? 'underline underline-offset-4' : ''}
@@ -91,18 +91,9 @@
 		</main>
 	{/key}
 	<footer
-		class="fixed bottom-0 left-0 flex w-full items-center border-t border-primary text-2xl text-primary/80"
+		class="fixed bottom-0 left-0 w-full py-2 items-center border-t border-secondary"
 		in:fly={{ y: 100, delay: 4500, duration: 1000 }}>
-		{#each data.profiles as profile}
-			<div class="border-r">
-				<a
-					href={profile.link}
-					class="flex items-center px-3 py-2 hover:text-primary lg:px-8 lg:py-4">
-					<iconify-icon icon={profile.icon}></iconify-icon>
-				</a>
-			</div>
-		{/each}
-		<ul class="flex w-full items-center justify-around overflow-hidden text-lg text-primary/10">
+		<ul class="flex w-full items-center justify-around overflow-hidden text-lg text-secondary">
 			{#each data.technologies as technology}
 				<li>
 					<i class="devicon-{technology.name}-plain"></i>
