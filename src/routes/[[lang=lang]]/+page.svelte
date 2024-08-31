@@ -5,8 +5,6 @@
 
 	let { data } = $props();
 
-	$inspect(data);
-
 	let pageLoaded = $state(false);
 	let duration = $state(0);
 	let codeImageDelay = $state(0);
@@ -31,16 +29,14 @@
 	onMount(() => {
 		if ($navigating) {
 			duration = 0;
-			codeImageDelay = 0;
 			profileImageDelay = 0;
 			textDelay = 0;
 			projectsDelay = 0;
 		} else {
-			// duration = 1500;
-			// codeImageDelay = 6000;
-			// profileImageDelay = 1500;
-			// textDelay = 3000;
-			// projectsDelay = 4500;
+			duration = 1500;
+			profileImageDelay = 1500;
+			textDelay = 3000;
+			projectsDelay = 4500;
 		}
 		pageLoaded = true;
 
@@ -55,7 +51,7 @@
 			<div class="relative flex h-full flex-col items-center justify-end">
 				<div class="relative w-full" in:fly={{ y: 500, duration: duration }}>
 					<p
-						class="w-full translate-x-9 pl-5 text-xs text-accent lg:pl-0 lg:text-base landscape:translate-x-10">
+						class="w-full translate-x-2 pl-5 text-xs text-accent lg:pl-0 lg:text-base lg:translate-x-10">
 						{data.home.translations[0].welcome_message}
 					</p>
 					<svg width="100%" class="absolute -z-10 h-8 text-4xl uppercase lg:h-12 lg:text-6xl">
@@ -131,10 +127,5 @@
 				{/each}
 			</div>
 		</div>
-		<img
-			src="https://directus.vitormisumi.com/assets/{data.home.bg_image.id}"
-			alt="Linhas de código"
-			class="absolute left-0 top-12 -z-20 rounded-none opacity-10 lg:left-12 lg:h-4/5"
-			in:fade={{ delay: codeImageDelay }} />
 	</div>
 {/if}

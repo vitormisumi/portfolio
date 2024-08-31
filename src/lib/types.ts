@@ -11,11 +11,14 @@ export interface Home {
 	name: string;
 	profile_image: { id: string };
 	bg_image: { id: string };
-	linkedin: string;
-	github: string;
 	images: ProjectImage[];
 	projects: Project[];
 	translations: HomeTranslation[];
+}
+
+export interface Profile {
+    icon: string;
+    link: string;
 }
 
 export interface Technology {

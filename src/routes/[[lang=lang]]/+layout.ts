@@ -1,5 +1,5 @@
 import getDirectusInstance from '$lib/directus';
-import type { Home, Technology } from '$lib/types.js';
+import type { Home, Profile, Technology } from '$lib/types.js';
 import { readItems } from '@directus/sdk';
 
 export async function load({ fetch, params }) {
@@ -17,6 +17,7 @@ export async function load({ fetch, params }) {
 				fields: ['*.*.*', { translations: ['*'] }]
 			})
 		),
-		technologies: await directus.request(readItems('technologies'))
-	} as unknown as { home: Home; technologies: Technology[] };
+        technologies: await directus.request(readItems('technologies')),
+        profiles: await directus.request(readItems('profiles'))
+    } as unknown as { home: Home; technologies: Technology[]; profiles: Profile[] };
 }

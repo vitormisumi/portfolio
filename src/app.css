@@ -7,10 +7,10 @@
 		@apply font-roboto text-xl font-medium text-secondary;
 	}
 	h2 {
-		@apply font-roboto text-xl font-medium text-primary;
+		@apply font-roboto text-base font-medium text-primary landscape:text-xl;
 	}
 	p {
-		@apply font-jet;
+		@apply font-jet text-xs landscape:text-base;
 	}
 	body {
 		@apply bg-background;
