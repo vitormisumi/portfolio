@@ -83,12 +83,12 @@
 		class="absolute left-0 top-12 -z-20 rounded-none opacity-5 lg:left-12 lg:h-4/5"
 		in:fade={{ delay: 4500 }} />
 	{#key data.url}
-		<div
+		<main
 			class={showMenu ? 'pointer-events-none opacity-5 transition-colors' : 'opacity-100'}
 			in:fly={{ y: 500, delay: 400 }}
 			out:fly={{ y: -500 }}>
 			{@render children()}
-		</div>
+		</main>
 	{/key}
 	<footer
 		class="fixed bottom-0 left-0 flex w-full items-center border-t border-primary text-2xl text-primary/80"

@@ -10,7 +10,7 @@
 
 <div
 	class="fixed top-0 -z-10 flex h-screen w-full flex-col gap-4 space-y-8 px-4 py-20 text-secondary md:px-12 landscape:grid landscape:grid-cols-4 landscape:place-items-center landscape:gap-8 landscape:space-y-0 landscape:lg:px-20 landscape:xl:px-40">
-	<div class="max-h-96 w-full landscape:h-full">
+	<nav class="max-h-96 w-full landscape:h-full">
 		<ul
 			class="flex justify-around overflow-x-auto font-mono text-xs landscape:inline landscape:space-x-0 landscape:space-y-4 landscape:text-base">
 			{#each data.projects as project, i}
@@ -29,34 +29,40 @@
 				</li>
 			{/each}
 		</ul>
-	</div>
+	</nav>
 	<div class="col-span-3 max-h-96 w-full landscape:h-full">
 		{#each data.projects as project}
 			{#if project.id === selectedProjectId}
-				<div class="flex w-full flex-col justify-between gap-4 landscape:flex-row">
+				<article class="flex w-full flex-col justify-between gap-4 landscape:flex-row">
 					<div class="space-y-4" in:fade>
 						<div>
 							<h2>{project.translations[0].title}</h2>
-							<p class="text-xs font-thin capitalize text-secondary/70">
-								{new Date(project.start_date)
-									.toLocaleDateString(project.translations[0].languages_code, {
-										year: '2-digit',
-										month: 'short'
-									})
-									.replace('. de', '')} -> {new Date(project.end_date)
-									.toLocaleDateString(project.translations[0].languages_code, {
-										year: '2-digit',
-										month: 'short'
-									})
-									.replace('. de', '')}
-							</p>
+							<h3 class="font-mono text-xs font-thin capitalize text-secondary/70">
+								<time datetime={project.start_date}>
+									{new Date(project.start_date)
+										.toLocaleDateString(project.translations[0].languages_code, {
+											year: '2-digit',
+											month: 'short'
+										})
+										.replace('. de', '')}
+								</time>
+								→
+								<time datetime={project.end_date}>
+									{new Date(project.end_date)
+										.toLocaleDateString(project.translations[0].languages_code, {
+											year: '2-digit',
+											month: 'short'
+										})
+										.replace('. de', '')}
+								</time>
+							</h3>
 						</div>
 						<div class="w-full">
 							{@html project.translations[0].description}
 						</div>
 					</div>
 					<Screen {project} {selectedProjectId} {selectedImageId} {data} />
-				</div>
+				</article>
 			{/if}
 		{/each}
 	</div>

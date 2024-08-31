@@ -6,9 +6,9 @@
 	let selectedSectionId = $state(data.about_sections[0].id);
 </script>
 
-<div
+<section
 	class="fixed top-0 -z-10 flex h-screen w-full flex-col gap-4 space-y-8 px-4 py-20 text-secondary md:px-12 landscape:grid landscape:grid-cols-4 landscape:place-items-center landscape:gap-8 landscape:space-y-0 landscape:lg:px-20 landscape:xl:px-40">
-	<div class="max-h-96 w-full landscape:h-full">
+	<nav class="max-h-96 w-full landscape:h-full">
 		<ul
 			class="flex justify-around overflow-x-auto font-mono text-xs landscape:inline landscape:space-x-0 landscape:space-y-4 landscape:text-base">
 			{#each data.about_sections as section}
@@ -24,12 +24,12 @@
 				</li>
 			{/each}
 		</ul>
-	</div>
+	</nav>
 	<div
 		class="col-span-3 grid max-h-96 w-full place-items-center landscape:h-full landscape:place-items-start">
 		{#each data.about_sections as section}
 			{#if section.id === selectedSectionId}
-				<div class="space-y-4" in:fade>
+				<article class="space-y-4" in:fade>
 					<h2>{section.translations[0].section_title}</h2>
 					<div class="grid gap-4 landscape:grid-cols-2">
 						<div class="max-h-96 w-full max-w-xl overflow-y-auto">
@@ -39,8 +39,8 @@
 							src="https://directus.vitormisumi.com/assets/{section.section_image}?width=400&format=auto"
 							alt={section.translations[0].image_alt} />
 					</div>
-				</div>
+				</article>
 			{/if}
 		{/each}
 	</div>
-</div>
+</section>
