@@ -37,7 +37,7 @@
 					<div class="space-y-4" in:fade>
 						<div>
 							<h2>{project.translations[0].title}</h2>
-							<h3 class="font-mono text-xs font-thin capitalize text-secondary/70">
+							<h3 class="font-mono text-xs font-thin capitalize">
 								<time datetime={project.start_date}>
 									{new Date(project.start_date)
 										.toLocaleDateString(project.translations[0].languages_code, {

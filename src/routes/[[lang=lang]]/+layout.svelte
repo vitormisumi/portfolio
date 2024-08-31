@@ -91,14 +91,31 @@
 		</main>
 	{/key}
 	<footer
-		class="fixed bottom-0 left-0 w-full py-2 items-center border-t border-secondary"
-		in:fly={{ y: 100, delay: 4500, duration: 1000 }}>
-		<ul class="flex w-full items-center justify-around overflow-hidden text-lg text-secondary">
-			{#each data.technologies as technology}
-				<li>
-					<i class="devicon-{technology.name}-plain"></i>
-				</li>
-			{/each}
-		</ul>
+		class="py-3 fixed bottom-0 left-0 overflow-hidden whitespace-nowrap border-t border-secondary" in:fly={{ y: 100, delay: 4500, duration: 1000 }}>
+		<div class="relative w-screen">
+			<div
+				class="to-transparent absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-background">
+			</div>
+			<ul
+				class="animate-infinite-scroll inline-block w-max text-lg text-secondary">
+				{#each data.technologies as technology}
+					<li class="mx-8 inline h-16 md:mx-12 lg:mx-24">
+						<i class="devicon-{technology.name}-plain"></i>
+					</li>
+				{/each}
+			</ul>
+			<ul
+				class="animate-infinite-scroll inline-block w-max text-lg text-secondary"
+				aria-hidden="true">
+				{#each data.technologies as technology}
+					<li class="mx-8 inline h-16 md:mx-12 lg:mx-24">
+						<i class="devicon-{technology.name}-plain"></i>
+					</li>
+				{/each}
+			</ul>
+			<div
+				class="to-transparent absolute right-0 top-0 z-50 h-full w-1/12 bg-gradient-to-l from-background">
+			</div>
+		</div>
 	</footer>
 {/if}

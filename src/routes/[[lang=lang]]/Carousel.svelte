@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { blur, fade } from 'svelte/transition';
 	import type { PageData } from './$types';
 
 	let {
@@ -41,20 +41,23 @@
 		<figcaption class="font-roboto text-primary">
 			{selectedProject.translations[0].title}
 		</figcaption>
-		<div class="w-full overflow-hidden rounded-lg" in:fade>
-			<img
-				src="https://directus.vitormisumi.com/assets/{selectedProject.home_image
-					.id}?width=600&format=auto"
-				alt="Screenshot"
-				role="group"
-				aria-roledescription="slide"
-				aria-labelledby={String(selectedProject.id)} />
-		</div>
+		{#key selectedProject.home_image.id}
+			<div class="w-full overflow-hidden rounded-lg">
+				<img
+					src="https://directus.vitormisumi.com/assets/{selectedProject.home_image
+						.id}?width=600&format=auto"
+					alt="Screenshot"
+					role="group"
+					aria-roledescription="slide"
+					aria-labelledby={String(selectedProject.id)}
+					in:blur />
+			</div>
+		{/key}
 	</figure>
 	<div class="absolute flex w-full justify-center gap-2 py-2">
 		{#each data.home.projects as project, i}
 			<button
-				class="rounded-full bg-secondary transition-all hover:bg-primary disabled:bg-primary {project.id ===
+				class="rounded-full bg-secondary transition-all hover:bg-accent disabled:bg-primary {project.id ===
 				selectedProject.id
 					? 'h-2 w-5'
 					: 'size-2'}"

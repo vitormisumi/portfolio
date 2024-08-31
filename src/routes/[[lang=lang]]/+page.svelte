@@ -19,10 +19,10 @@
 			textDelay = 0;
 			projectsDelay = 0;
 		} else {
-			// duration = 1500;
-			// profileImageDelay = 1500;
-			// textDelay = 3000;
-			// projectsDelay = 4500;
+			duration = 1500;
+			profileImageDelay = 1500;
+			textDelay = 3000;
+			projectsDelay = 4500;
 		}
 		pageLoaded = true;
 	});
@@ -81,7 +81,7 @@
 				in:fade={{ duration: duration, delay: textDelay }}>
 				{data.home.translations[0].subtitle}
 			</h2>
-			<div class="flex w-full justify-center gap-2 text-2xl text-secondary landscape:justify-start">
+			<div class="flex w-full justify-center gap-2 text-2xl text-secondary landscape:justify-start" in:fade={{ duration: duration, delay: textDelay }}>
 				<a href="https://github.com/vitormisumi">
 					<iconify-icon icon="mdi:github"></iconify-icon>
 				</a>
