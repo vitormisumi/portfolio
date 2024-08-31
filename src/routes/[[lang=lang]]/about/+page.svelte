@@ -3,8 +3,6 @@
 
 	let { data } = $props();
 
-	$inspect(data);
-
 	let selectedSectionId = $state(data.about_sections[0].id);
 </script>
 

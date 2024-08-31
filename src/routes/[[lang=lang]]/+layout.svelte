@@ -5,8 +5,6 @@
 
 	let { children, data } = $props();
 
-    $inspect(data)
-
 	let lang = $derived.by(() => {
 		if ($page.url.pathname.split('/').length > 2) {
 			return $page.url.pathname.split('/')[1];
@@ -15,8 +13,8 @@
 	});
 
 	let route = $derived.by(() => {
-        if ($page.url.pathname.split('/').length > 2) {
-            return $page.url.pathname.split('/')[2];
+		if ($page.url.pathname.split('/').length > 2) {
+			return $page.url.pathname.split('/')[2];
 		}
 		return '';
 	});
@@ -40,7 +38,7 @@
 <svelte:window bind:innerWidth bind:innerHeight />
 {#if pageLoaded}
 	<header
-		class=" to-transparent bg-gradient-to-b from-[#05090A] p-4 landscape:p-8"
+		class="to-transparent bg-gradient-to-b from-[#05090A] p-4 lg:p-8"
 		in:fly={{ y: -100, delay: 6000, duration: 1000 }}>
 		<button class="text-secondary landscape:hidden" onclick={toggleMenu}>
 			<iconify-icon icon="mdi:menu"></iconify-icon>
@@ -81,10 +79,10 @@
 	<footer
 		class="fixed bottom-0 left-0 flex w-full items-center border-t border-primary text-2xl text-primary"
 		in:fly={{ y: 100, delay: 6000, duration: 1000 }}>
-		<a href={data.home.github} class="flex items-center border-r px-3 py-2 md:px-8 md:py-4">
+		<a href={data.home.github} class="flex items-center border-r px-3 py-2 lg:px-8 lg:py-4">
 			<iconify-icon icon="mdi:github"></iconify-icon>
 		</a>
-		<a href={data.home.linkedin} class="flex items-center border-r px-3 py-2 md:px-8 md:py-4">
+		<a href={data.home.linkedin} class="flex items-center border-r px-3 py-2 lg:px-8 lg:py-4">
 			<iconify-icon icon="mdi:linkedin"></iconify-icon>
 		</a>
 		<ul class="flex w-full items-center justify-around text-xl text-secondary">

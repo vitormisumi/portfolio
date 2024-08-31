@@ -12,8 +12,9 @@ export interface Home {
 	profile_image: { id: string };
 	bg_image: { id: string };
 	linkedin: string;
-    github: string;
-    images: ProjectImage[]
+	github: string;
+	images: ProjectImage[];
+	projects: Project[];
 	translations: HomeTranslation[];
 }
 
@@ -59,4 +60,5 @@ export interface Project {
 	translations: ProjectTranslation[];
 	images: ProjectImage[];
 	images_frame: 'mobile' | 'desktop';
+	home_image: { id: string };
 }
