@@ -99,7 +99,7 @@
 			<ul
 				class="animate-infinite-scroll inline-block w-max text-lg text-secondary">
 				{#each data.technologies as technology}
-					<li class="mx-8 inline h-16 md:mx-12 lg:mx-24">
+					<li class="mx-8 inline h-16 md:mx-16 lg:mx-20">
 						<i class="devicon-{technology.name}-plain"></i>
 					</li>
 				{/each}
@@ -108,7 +108,7 @@
 				class="animate-infinite-scroll inline-block w-max text-lg text-secondary"
 				aria-hidden="true">
 				{#each data.technologies as technology}
-					<li class="mx-8 inline h-16 md:mx-12 lg:mx-24">
+					<li class="mx-8 inline h-16 md:mx-16 lg:mx-20">
 						<i class="devicon-{technology.name}-plain"></i>
 					</li>
 				{/each}

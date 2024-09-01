@@ -9,9 +9,9 @@ export interface HomeTranslation {
 export interface Home {
 	id: number;
 	name: string;
-	profile_image: { id: string };
-	bg_image: { id: string };
-	images: ProjectImage[];
+	profile_image: Image;
+	bg_image: Image;
+	images: Image[];
 	projects: Project[];
 	translations: HomeTranslation[];
 }
@@ -38,7 +38,7 @@ export interface AboutTranslation {
 export interface About {
 	id: number;
 	section_icon: string;
-	section_image: string;
+	images: Image[];
 	translations: AboutTranslation[];
 }
 
@@ -50,7 +50,7 @@ export interface ProjectTranslation {
 	description: string;
 }
 
-export interface ProjectImage {
+export interface Image {
 	id: number;
 	projects_id: number;
 	directus_files_id: string;
@@ -61,7 +61,7 @@ export interface Project {
 	start_date: string;
 	end_date: string;
 	translations: ProjectTranslation[];
-	images: ProjectImage[];
+	images: Image[];
 	images_frame: 'mobile' | 'desktop';
 	home_image: { id: string };
 }
