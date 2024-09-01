@@ -31,7 +31,8 @@
 {#if pageLoaded}
 	<div
 		class="fixed top-0 -z-10 flex h-screen w-full flex-col items-center justify-evenly landscape:flex-row">
-		<div class="flex h-44 w-fit max-w-xs flex-col justify-end gap-2 lg:h-80 lg:max-w-lg">
+		<div
+			class="flex aspect-[1.5] w-fit max-w-sm flex-col justify-end gap-2 md:max-w-md lg:max-w-lg">
 			<div class="relative flex h-full flex-col items-center justify-end">
 				<div class="relative w-full" in:fly={{ y: 500, duration: duration }}>
 					<p class="w-full text-xs text-primary lg:text-base">
@@ -39,7 +40,7 @@
 					</p>
 					<h1>
 						<svg
-							class="absolute -z-10 h-8 w-[260px] text-4xl uppercase lg:h-12 lg:w-[435px] lg:text-6xl">
+							class="absolute -z-10 h-8 w-[260px] text-4xl uppercase md:h-10 md:w-[345px] md:text-5xl lg:h-12 lg:w-[435px] lg:text-6xl">
 							<text
 								x="50%"
 								y="50%"
@@ -53,7 +54,8 @@
 								{data.home.name}
 							</text>
 						</svg>
-						<svg class="h-8 w-[260px] text-4xl uppercase lg:h-12 lg:w-[435px] lg:text-6xl">
+						<svg
+							class="h-8 w-[260px] text-4xl uppercase md:h-10 md:w-[345px] md:text-5xl lg:h-12 lg:w-[435px] lg:text-6xl">
 							<text
 								x="50%"
 								y="50%"
@@ -81,7 +83,9 @@
 				in:fade={{ duration: duration, delay: textDelay }}>
 				{data.home.translations[0].subtitle}
 			</h2>
-			<div class="flex w-full justify-center gap-2 text-2xl text-secondary landscape:justify-start" in:fade={{ duration: duration, delay: textDelay }}>
+			<div
+				class="flex w-full justify-center gap-2 text-2xl text-secondary landscape:justify-start"
+				in:fade={{ duration: duration, delay: textDelay }}>
 				<a href="https://github.com/vitormisumi">
 					<iconify-icon icon="mdi:github"></iconify-icon>
 				</a>

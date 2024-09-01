@@ -36,7 +36,7 @@
 	role="region"
 	in:fade={{ delay: projectsDelay }}>
 	<figure
-		class="grid h-48 w-full max-w-xs gap-2 rounded-lg border border-primary/10 bg-primary/5 p-4 pt-2 shadow-2xl shadow-secondary/20 lg:h-80 lg:max-w-lg"
+		class="grid aspect-[1.5] w-full max-w-xs md:max-w-md gap-2 rounded-lg border border-primary/10 bg-primary/5 p-4 pt-2 shadow-2xl shadow-secondary/20 lg:max-w-lg"
 		id={String(selectedProject.id)}>
 		<figcaption class="font-roboto text-primary">
 			{selectedProject.translations[0].title}
