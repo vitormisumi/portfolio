@@ -8,9 +8,9 @@
 	let selectedImageId = $state(data.projects[0].images[0].id);
 </script>
 
-<div
-	class="fixed top-0 -z-10 flex h-screen w-full flex-col gap-4 space-y-8 px-4 py-20 text-secondary md:px-12 landscape:grid landscape:grid-cols-4 landscape:place-items-center landscape:gap-8 landscape:space-y-0 landscape:lg:px-20 landscape:xl:px-40">
-	<nav class="max-h-96 w-full landscape:h-full">
+<section
+	class="fixed top-0 -z-10 flex h-screen w-full flex-col items-center gap-4 px-6 py-16 text-secondary md:gap-8 md:px-12 md:py-20 landscape:grid landscape:grid-cols-4 landscape:place-items-center landscape:gap-8 landscape:space-y-0 landscape:lg:px-20 landscape:xl:px-28">
+	<nav class="max-h-96 w-full max-w-xl landscape:h-full landscape:max-w-full">
 		<ul
 			class="flex justify-around overflow-x-auto font-mono text-xs landscape:inline landscape:space-x-0 landscape:space-y-4 landscape:text-base">
 			{#each data.projects as project, i}
@@ -30,10 +30,12 @@
 			{/each}
 		</ul>
 	</nav>
-	<div class="col-span-3 max-h-96 w-full landscape:h-full">
+	<div
+		class="col-span-3 grid max-h-96 w-full max-w-xl place-items-center landscape:h-full landscape:max-w-full landscape:place-items-start">
 		{#each data.projects as project}
 			{#if project.id === selectedProjectId}
-				<article class="flex w-full flex-col justify-between gap-4 landscape:flex-row">
+				<article
+					class="flex h-[70vh] w-full flex-col justify-between gap-4 md:h-[75vh] landscape:h-[60vh] landscape:flex-row">
 					<div class="space-y-4" in:fade>
 						<div>
 							<h2>{project.translations[0].title}</h2>
@@ -66,4 +68,4 @@
 			{/if}
 		{/each}
 	</div>
-</div>
+</section>

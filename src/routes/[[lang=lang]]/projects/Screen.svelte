@@ -28,17 +28,17 @@
 {#each project.images as image, i}
 	{#if image.id === selectedImageId}
 		<figure
-			class="relative flex items-center justify-between place-self-center overflow-hidden border-[#000] shadow-sm shadow-primary drop-shadow-xl {project.images_frame ===
+			class="relative flex items-center justify-between place-self-center overflow-hidden border-[#000] shadow-sm shadow-primary drop-shadow-xl landscape:place-self-start {project.images_frame ===
 			'mobile'
 				? 'aspect-[0.46] h-[50vh] w-fit rounded-2xl border-4'
-				: 'aspect-[1.6] w-fit min-w-[25vw] rounded-lg border-8'}">
+				: 'aspect-[1.6] w-full min-w-[25vw] rounded-lg border-8'}">
 			<img
 				src="https://directus.vitormisumi.com/assets/{image.directus_files_id}?width={project.images_frame ===
 				'mobile'
 					? '300'
 					: '600'}&format=auto"
 				alt=""
-				class="absolute inset-0 -z-10" />
+				class="absolute inset-0 -z-10 w-full" />
 			<button
 				class="size-8 rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-25"
 				disabled={i === 0}

@@ -49,12 +49,12 @@
 			{#if section.id === selectedSection.id}
 				<article class="space-y-4" in:fade>
 					<h2>{section.translations[0].section_title}</h2>
-					<div class="grid gap-4 landscape:grid-cols-2">
+					<div class="grid gap-4 md:gap-8 landscape:grid-cols-2">
 						<div class="relative">
 							<div
 								class="from-transparent absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b to-background">
 							</div>
-							<div class="max-h-48 w-full overflow-y-auto pb-10 md:max-h-80 lg:max-h-96">
+							<div class="max-h-48 w-full overflow-y-auto pb-10 md:max-h-72 lg:max-h-96">
 								{@html section.translations[0].section_text}
 							</div>
 						</div>
