@@ -59,16 +59,16 @@
 						href="/{lang}/about"
 						class={route === 'about' ? 'underline underline-offset-4' : ''}
 						onclick={() => (showMenu = false)}>
-						Sobre mim
+						{lang === 'pt' ? 'Sobre mim' : 'About me'}
 					</a>
 					<a
 						href="/{lang}/projects"
 						class={route === 'projects' ? 'underline underline-offset-4' : ''}
-						onclick={() => (showMenu = false)}>Projetos</a>
+						onclick={() => (showMenu = false)}>{lang === 'pt' ? 'Projetos' : 'Projects'}</a>
 					<a
 						href="/{lang}/contact"
 						class={route === 'contact' ? 'underline underline-offset-4' : ''}
-						onclick={() => (showMenu = false)}>Contato</a>
+						onclick={() => (showMenu = false)}>{lang === 'pt' ? 'Contato' : 'Contacts'}</a>
 				</nav>
 				<div class="grid grid-cols-2 place-items-center divide-x divide-secondary text-secondary">
 					<a href="/pt/{route}" class="pr-2">PT</a>
@@ -85,19 +85,19 @@
 	{#key data.url}
 		<main
 			class={showMenu ? 'pointer-events-none opacity-5 transition-colors' : 'opacity-100'}
-			in:fly={{ y: 500, delay: 400 }}
-			out:fly={{ y: -500 }}>
+			in:fly={{ y: 200, delay: 400 }}
+			out:fly={{ y: -200 }}>
 			{@render children()}
 		</main>
 	{/key}
 	<footer
-		class="py-3 fixed bottom-0 left-0 overflow-hidden whitespace-nowrap border-t border-secondary" in:fly={{ y: 100, delay: 4500, duration: 1000 }}>
+		class="fixed bottom-0 left-0 overflow-hidden whitespace-nowrap border-t border-secondary py-3"
+		in:fly={{ y: 100, delay: 4500, duration: 1000 }}>
 		<div class="relative w-screen">
 			<div
-				class="to-transparent absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-background">
+				class="to-transparent absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-background via-background via-25%">
 			</div>
-			<ul
-				class="animate-infinite-scroll inline-block w-max text-lg text-secondary">
+			<ul class="animate-infinite-scroll inline-block w-max text-lg text-secondary">
 				{#each data.technologies as technology}
 					<li class="mx-8 inline h-16 md:mx-16 lg:mx-20">
 						<i class="devicon-{technology.name}-plain"></i>
@@ -114,7 +114,7 @@
 				{/each}
 			</ul>
 			<div
-				class="to-transparent absolute right-0 top-0 z-50 h-full w-1/12 bg-gradient-to-l from-background">
+				class="to-transparent absolute right-0 top-0 z-50 h-full w-1/12 bg-gradient-to-l from-background via-background via-25%">
 			</div>
 		</div>
 	</footer>

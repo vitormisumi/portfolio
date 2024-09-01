@@ -59,7 +59,7 @@
 							</div>
 						</div>
 						<img
-							src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=400&height=300&format=auto"
+							src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
 							alt=""
 							class="w-full rounded-lg border p-2 md:p-4 landscape:p-2" />
 					</div>

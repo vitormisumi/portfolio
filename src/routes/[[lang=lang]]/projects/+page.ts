@@ -6,18 +6,19 @@ export async function load({ fetch, params }) {
 	const directus = getDirectusInstance(fetch);
 	return {
 		projects: await directus.request(
-			readItems('projects', {
-				deep: {
-					translations: {
-						_filter: {
-							_and: [
-								{
-									languages_code: { _eq: params.lang === 'en' ? 'en-US' : 'pt-BR' }
+            readItems('projects', {
+                deep: {
+                    translations: {
+                        _filter: {
+                            _and: [
+                                {
+                                    languages_code: { _eq: params.lang === 'en' ? 'en-US' : 'pt-BR' }
 								}
 							]
 						}
 					}
 				},
+                sort: ['-start_date'],
 				fields: ['*.*', { translations: ['*'] }]
 			})
 		)

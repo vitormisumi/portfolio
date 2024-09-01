@@ -1,56 +1,63 @@
 <script lang="ts">
 	import type { Project } from '$lib/types';
+	import { fly } from 'svelte/transition';
 	import type { PageData } from './$types';
 
-	let {
-		selectedImageId,
-		selectedProjectId,
-		project,
-		data
-	}: { selectedImageId: number; selectedProjectId: number; project: Project; data: PageData } =
-		$props();
+	let { project, data }: { project: Project; data: PageData } = $props();
+
+	let selectedImageIndex = $state(0);
+	let selectedImage = $derived(project.images[selectedImageIndex]);
+	let scrollDirection: 'forward' | 'backward' = $state('forward');
 
 	function previousImage(i: number) {
 		if (i > 0) {
-			selectedImageId =
-				data.projects.find((project) => project.id === selectedProjectId)?.images[i - 1].id ?? 0;
+			selectedImageIndex--;
+			scrollDirection = 'forward';
 		}
 	}
 
 	function nextImage(i: number) {
 		if (i < project.images.length) {
-			selectedImageId =
-				data.projects.find((project) => project.id === selectedProjectId)?.images[i + 1].id ?? 0;
+			selectedImageIndex++;
+			scrollDirection = 'backward';
 		}
 	}
 </script>
 
-{#each project.images as image, i}
-	{#if image.id === selectedImageId}
-		<figure
-			class="relative flex items-center justify-between place-self-center overflow-hidden border-[#000] shadow-sm shadow-primary drop-shadow-xl landscape:place-self-start {project.images_frame ===
-			'mobile'
-				? 'aspect-[0.46] h-[50vh] w-fit rounded-2xl border-4'
-				: 'aspect-[1.6] w-full min-w-[25vw] rounded-lg border-8'}">
+<div
+	aria-roledescription="carousel"
+	role="region"
+	class="place-self-center landscape:place-self-start">
+	<figure
+		class="relative flex items-center justify-between overflow-hidden border-[#000] shadow-sm shadow-primary drop-shadow-xl {project.images_frame ===
+		'mobile'
+			? 'aspect-[0.46] h-[50vh] rounded-2xl border-4 landscape:h-[60vh] landscape:md:h-[50vh]'
+			: 'aspect-[1.6] rounded-lg border-8 landscape:w-[25vw] landscape:lg:w-[30vw]'}">
+		{#key selectedImage}
 			<img
-				src="https://directus.vitormisumi.com/assets/{image.directus_files_id}?width={project.images_frame ===
+				src="https://directus.vitormisumi.com/assets/{selectedImage.directus_files_id}?width={project.images_frame ===
 				'mobile'
 					? '300'
-					: '600'}&format=auto"
-				alt=""
-				class="absolute inset-0 -z-10 w-full" />
-			<button
-				class="size-8 rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-25"
-				disabled={i === 0}
-				onclick={() => previousImage(i)}>
-				←
-			</button>
-			<button
-				class="size-8 rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-25"
-				disabled={i === project.images.length - 1}
-				onclick={() => nextImage(i)}>
-				→
-			</button>
-		</figure>
-	{/if}
-{/each}
+					: '900'}&format=auto"
+				alt="Screenshot"
+				role="group"
+				aria-roledescription="slide"
+				aria-labelledby={String(selectedImage.id)}
+				class="absolute inset-0 -z-10 w-full"
+				in:fly={{ x: scrollDirection === 'forward' ? -500 : 500 }}
+				out:fly={{ x: scrollDirection === 'forward' ? 500 : -500 }} />
+		{/key}
+		<button
+			class="size-8 rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-10"
+			disabled={selectedImageIndex === 0}
+			onclick={() => previousImage(selectedImageIndex)}>
+			←
+		</button>
+		<button
+			class="size-8 rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-10"
+			disabled={selectedImageIndex === project.images.length - 1}
+			onclick={() => nextImage(selectedImageIndex)}>
+			→
+		</button>
+	</figure>
+</div>
