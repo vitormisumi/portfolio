@@ -27,7 +27,7 @@
 <div
 	aria-roledescription="carousel"
 	role="region"
-	class="place-self-center landscape:place-self-start">
+	class="w-full place-self-center landscape:place-self-start">
 	<figure
 		class="relative flex items-center justify-between overflow-hidden border-[#000] shadow-sm shadow-primary drop-shadow-xl {project.images_frame ===
 		'mobile'
@@ -48,13 +48,13 @@
 				out:fly={{ x: scrollDirection === 'forward' ? 500 : -500 }} />
 		{/key}
 		<button
-			class="size-8 rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-10"
+			class="flex size-8 items-center justify-center rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-10"
 			disabled={selectedImageIndex === 0}
 			onclick={() => previousImage(selectedImageIndex)}>
 			←
 		</button>
 		<button
-			class="size-8 rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-10"
+			class="flex size-8 items-center justify-center rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-10"
 			disabled={selectedImageIndex === project.images.length - 1}
 			onclick={() => nextImage(selectedImageIndex)}>
 			→
