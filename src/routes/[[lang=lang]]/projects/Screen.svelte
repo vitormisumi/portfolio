@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import type { Project } from '$lib/types';
 	import { fly } from 'svelte/transition';
 
@@ -35,7 +36,7 @@
 				'mobile'
 					? '300'
 					: '900'}&format=auto"
-				alt="Screenshot"
+				alt={$page.params.lang === 'pt' ? 'Screenshot do projeto' : 'Screenshot of project'}
 				role="group"
 				aria-roledescription="slide"
 				aria-labelledby={String(selectedImage.id)}

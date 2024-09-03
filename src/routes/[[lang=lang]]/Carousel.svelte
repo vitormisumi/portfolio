@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { blur, fade } from 'svelte/transition';
 	import type { PageData } from './$types';
+    import { page } from '$app/stores';
 
 	let { projectsDelay, data }: { projectsDelay: number; data: PageData } = $props();
 
@@ -44,7 +45,9 @@
 				<img
 					src="https://directus.vitormisumi.com/assets/{selectedProject.home_image
 						.id}?width=750&format=auto"
-					alt="Screenshot"
+					alt={$page.params.lang === 'pt'
+						? `Screenshot do projeto ${selectedProject.translations[0].title}`
+						: `Screenshot of project ${selectedProject.translations[0].title}`}
 					onload={() => (imageLoaded = true)}
 					role="group"
 					aria-roledescription="slide"

@@ -22,6 +22,8 @@
 	onMount(() => {
 		imageSlideshow();
 	});
+
+	let imageLoaded = $state(false);
 </script>
 
 <section
@@ -46,22 +48,28 @@
 		{#key selectedSection}
 			<article
 				class="grid max-w-lg place-items-center gap-4 landscape:max-w-full landscape:grid-cols-2 landscape:place-items-start landscape:gap-8"
+				aria-labelledby="article-title"
 				in:fade>
 				<div class="grid gap-4">
-					<h2>{selectedSection.translations[0].section_title}</h2>
+					<h2 id="article-title">{selectedSection.translations[0].section_title}</h2>
 					<div class="relative">
 						<div>
 							<div
 								class="pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b from-transparent to-background">
 							</div>
-							<div class="max-h-[25vh] w-full overflow-y-auto pb-10 landscape:max-h-[50vh]">
+							<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+							<div
+								class="max-h-[25vh] w-full overflow-y-auto pb-10 landscape:max-h-[50vh]"
+								tabindex="0"
+								role="region"
+								aria-label={$page.params.lang === 'pt' ? 'Texto rolável' : 'Scrollable text'}>
 								{@html selectedSection.translations[0].section_text}
 							</div>
 						</div>
 					</div>
 				</div>
 				{#if selectedSection.images.length}
-					<div class="grid">
+					<figure class="grid">
 						{#key currentImageIndex}
 							<img
 								src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
@@ -69,9 +77,13 @@
 									? 'Vitor trabalhando com futebol'
 									: 'Vitor working with football'}
 								class="col-start-1 row-start-1 rounded-lg border border-secondary p-2 shadow-2xl shadow-secondary/20 md:p-4 landscape:p-2"
+								onload={() => (imageLoaded = true)}
 								transition:fade={{ duration: 1000 }} />
 						{/key}
-					</div>
+						{#if !imageLoaded}
+							<div class="w-[512px]" aria-hidden="true"></div>
+						{/if}
+					</figure>
 				{/if}
 			</article>
 		{/key}

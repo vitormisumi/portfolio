@@ -9,6 +9,9 @@
 	h2 {
 		@apply font-roboto text-base font-medium text-primary landscape:text-xl;
 	}
+	h3 {
+		@apply font-roboto text-sm font-medium text-primary landscape:text-base;
+	}
 	p {
 		@apply font-jet text-xs font-extralight text-secondary landscape:text-base;
 	}
