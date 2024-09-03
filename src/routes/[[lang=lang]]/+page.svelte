@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { draw, fade, fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import Carousel from './Carousel.svelte';
 
 	let { data } = $props();
@@ -84,7 +84,7 @@
 				{data.home.translations[0].subtitle}
 			</h2>
 			<div
-				class="flex w-full justify-center gap-2 text-lg lg:text-2xl text-secondary landscape:justify-start"
+				class="flex w-full justify-center gap-2 text-lg text-secondary lg:text-2xl landscape:justify-start"
 				in:fade={{ duration: duration, delay: textDelay }}>
 				<a href="https://github.com/vitormisumi">
 					<iconify-icon icon="mdi:github"></iconify-icon>

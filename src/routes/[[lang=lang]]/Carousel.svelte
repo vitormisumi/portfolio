@@ -3,13 +3,7 @@
 	import { blur, fade } from 'svelte/transition';
 	import type { PageData } from './$types';
 
-	let {
-		projectsDelay,
-		data
-	}: {
-		projectsDelay: number;
-		data: PageData;
-	} = $props();
+	let { projectsDelay, data }: { projectsDelay: number; data: PageData } = $props();
 
 	let selectedProjectIndex = $state(0);
 	let selectedProject = $derived(data.home.projects[selectedProjectIndex]);
@@ -19,8 +13,10 @@
 		interval = setInterval(() => {
 			if (selectedProjectIndex === data.home.projects.length - 1) {
 				selectedProjectIndex = 0;
+				imageLoaded = false;
 			} else {
 				selectedProjectIndex += 1;
+				imageLoaded = false;
 			}
 		}, 9000);
 	}
@@ -28,6 +24,8 @@
 	onMount(() => {
 		imageSlideshow();
 	});
+
+	let imageLoaded = $state(false);
 </script>
 
 <div
@@ -36,23 +34,27 @@
 	role="region"
 	in:fade={{ delay: projectsDelay }}>
 	<figure
-		class="grid aspect-[1.5] w-full max-w-xs lg:max-w-md gap-2 rounded-lg border border-primary/10 bg-primary/5 p-4 pt-2 shadow-2xl shadow-secondary/20 xl:max-w-lg"
+		class="grid aspect-[1.5] w-full max-w-xs gap-2 rounded-lg border border-primary/10 bg-primary/5 p-4 pt-2 shadow-2xl shadow-secondary/20 lg:max-w-md xl:max-w-lg"
 		id={String(selectedProject.id)}>
 		<figcaption class="font-roboto text-primary">
 			{selectedProject.translations[0].title}
 		</figcaption>
-		{#key selectedProject.home_image.id}
-			<div class="w-full overflow-hidden rounded-lg">
+		<div class="w-full overflow-hidden rounded-lg">
+			{#key selectedProject}
 				<img
 					src="https://directus.vitormisumi.com/assets/{selectedProject.home_image
-						.id}?width=600&format=auto"
+						.id}?width=750&format=auto"
 					alt="Screenshot"
+					onload={() => (imageLoaded = true)}
 					role="group"
 					aria-roledescription="slide"
 					aria-labelledby={String(selectedProject.id)}
 					in:blur />
-			</div>
-		{/key}
+			{/key}
+			{#if !imageLoaded}
+				<div class="w-[512px]"></div>
+			{/if}
+		</div>
 	</figure>
 	<div class="absolute flex w-full justify-center gap-2 py-2">
 		{#each data.home.projects as project, i}
