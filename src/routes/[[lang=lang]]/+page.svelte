@@ -40,7 +40,7 @@
 					</p>
 					<h1>
 						<svg
-							class="absolute -z-10 h-8 w-[260px] text-4xl uppercase md:h-10 md:w-[345px] md:text-5xl lg:h-12 lg:w-[435px] lg:text-6xl">
+							class="absolute -z-10 h-8 w-[260px] text-4xl uppercase lg:h-10 lg:w-[345px] lg:text-5xl xl:h-12 xl:w-[435px] xl:text-6xl">
 							<text
 								x="50%"
 								y="49%"
@@ -55,7 +55,7 @@
 							</text>
 						</svg>
 						<svg
-							class="h-8 w-[260px] text-4xl uppercase md:h-10 md:w-[345px] md:text-5xl lg:h-12 lg:w-[435px] lg:text-6xl">
+							class="h-8 w-[260px] text-4xl uppercase lg:h-10 lg:w-[345px] lg:text-5xl xl:h-12 xl:w-[435px] xl:text-6xl">
 							<text
 								x="50%"
 								y="49%"
@@ -79,12 +79,12 @@
 					in:fly={{ x: 500, duration: duration, delay: profileImageDelay }} />
 			</div>
 			<h2
-				class="text-center font-mono text-xs font-extralight tracking-tight text-secondary lg:text-lg lg:tracking-wide"
+				class="text-center font-mono text-xs font-extralight tracking-tight text-secondary lg:text-base xl:text-lg xl:tracking-wide"
 				in:fade={{ duration: duration, delay: textDelay }}>
 				{data.home.translations[0].subtitle}
 			</h2>
 			<div
-				class="flex w-full justify-center gap-2 text-2xl text-secondary landscape:justify-start"
+				class="flex w-full justify-center gap-2 text-lg lg:text-2xl text-secondary landscape:justify-start"
 				in:fade={{ duration: duration, delay: textDelay }}>
 				<a href="https://github.com/vitormisumi">
 					<iconify-icon icon="mdi:github"></iconify-icon>
