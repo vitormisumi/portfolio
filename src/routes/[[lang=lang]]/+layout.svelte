@@ -77,7 +77,7 @@
 						<a
 							href="/{lang}/contact"
 							class={route === 'contact' ? 'underline underline-offset-4' : ''}
-							onclick={() => (showMenu = false)}>{lang === 'pt' ? 'Contato' : 'Contacts'}</a>
+							onclick={() => (showMenu = false)}>{lang === 'pt' ? 'Contato' : 'Contact'}</a>
 					</div>
 					<div class="grid grid-cols-2 place-items-center divide-x divide-secondary text-secondary">
 						<a
