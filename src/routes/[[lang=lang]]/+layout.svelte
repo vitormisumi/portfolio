@@ -5,7 +5,7 @@
 
 	let { children, data } = $props();
 
-	let lang: string = $derived($page.url.pathname.startsWith('/pt') ? 'pt' : 'en');
+	let lang: string = $derived($page.url.pathname.startsWith('/en') ? 'en' : 'pt');
 
 	$effect(() => {
 		document.documentElement.lang = lang;
