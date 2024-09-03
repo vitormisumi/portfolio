@@ -19,10 +19,10 @@
 			textDelay = 0;
 			projectsDelay = 0;
 		} else {
-			duration = 1500;
-			profileImageDelay = 1500;
-			textDelay = 3000;
-			projectsDelay = 4500;
+			// duration = 1500;
+			// profileImageDelay = 1500;
+			// textDelay = 3000;
+			// projectsDelay = 4500;
 		}
 		pageLoaded = true;
 	});
@@ -31,14 +31,14 @@
 {#if pageLoaded}
 	<div class="flex h-full w-full flex-col items-center justify-around landscape:flex-row">
 		<div
-			class="flex aspect-[1.5] w-fit max-w-sm flex-col justify-end gap-2 md:max-w-md lg:max-w-lg">
+			class="flex aspect-[1.5] w-fit max-w-xs flex-col justify-end gap-2 md:max-w-sm lg:max-w-md landscape:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md">
 			<div class="relative flex h-full flex-col items-center justify-end">
 				<div class="relative w-full" in:fly={{ y: 500, duration: duration }}>
 					<p class="w-full text-xs text-primary lg:text-base">
 						{data.home.translations[0].welcome_message}
 					</p>
 					<h1>
-						<svg width="100%" viewBox="0 0 300 35" class="absolute -z-10 w-full uppercase">
+						<svg viewBox="0 0 300 35" class="absolute -z-10 w-full uppercase">
 							<text
 								x="0"
 								y="48%"
@@ -54,7 +54,7 @@
 								{data.home.name}
 							</text>
 						</svg>
-						<svg width="100%" viewBox="0 0 300 35" class="w-full uppercase">
+						<svg viewBox="0 0 300 35" class="w-full uppercase">
 							<text
 								x="0"
 								y="48%"
@@ -80,7 +80,7 @@
 					in:fly={{ x: 500, duration: duration, delay: profileImageDelay }} />
 			</div>
 			<h2
-				class="text-center font-mono text-xs font-extralight tracking-tight text-secondary lg:text-base xl:text-lg xl:tracking-wide"
+				class="text-center font-mono text-xs font-extralight tracking-tight text-secondary md:text-base lg:text-xl xl:tracking-wide landscape:text-xs landscape:lg:text-sm landscape:xl:text-base"
 				in:fade={{ duration: duration, delay: textDelay }}>
 				{data.home.translations[0].subtitle}
 			</h2>
