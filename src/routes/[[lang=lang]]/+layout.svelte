@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { blur, fade, fly, slide } from 'svelte/transition';
+	import { fade, fly, slide } from 'svelte/transition';
 
 	let { children, data } = $props();
 
@@ -87,7 +87,7 @@
 			<main
 				class={showMenu
 					? 'pointer-events-none opacity-5 transition-colors'
-					: 'h-full overflow-hidden p-6 opacity-100 md:p-8 landscape:p-24 landscape:xl:px-32'}
+					: 'h-full overflow-hidden p-6 opacity-100 md:p-8 landscape:lg:p-24 landscape:xl:px-32'}
 				in:fade>
 				{@render children()}
 			</main>

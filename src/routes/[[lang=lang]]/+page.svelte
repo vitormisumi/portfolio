@@ -29,8 +29,7 @@
 </script>
 
 {#if pageLoaded}
-	<div
-		class="flex h-[80vh] w-full flex-col items-center justify-evenly landscape:h-[50vh] landscape:flex-row landscape:justify-around">
+	<div class="flex h-full w-full flex-col items-center justify-around landscape:flex-row">
 		<div
 			class="flex aspect-[1.5] w-fit max-w-sm flex-col justify-end gap-2 md:max-w-md lg:max-w-lg">
 			<div class="relative flex h-full flex-col items-center justify-end">
@@ -39,13 +38,14 @@
 						{data.home.translations[0].welcome_message}
 					</p>
 					<h1>
-						<svg
-							class="absolute -z-10 h-8 w-[260px] text-4xl uppercase lg:h-10 lg:w-[345px] lg:text-5xl xl:h-12 xl:w-[435px] xl:text-6xl">
+						<svg width="100%" viewBox="0 0 300 35" class="absolute -z-10 w-full uppercase">
 							<text
-								x="50%"
-								y="49%"
-								text-anchor="middle"
+								x="0"
+								y="48%"
+								textLength="300"
+								lengthAdjust="spacingAndGlyphs"
 								dominant-baseline="central"
+								font-size="42"
 								font-family="Roboto Mono"
 								font-weight="bold"
 								fill="#FFFCF2"
@@ -54,13 +54,14 @@
 								{data.home.name}
 							</text>
 						</svg>
-						<svg
-							class="h-8 w-[260px] text-4xl uppercase lg:h-10 lg:w-[345px] lg:text-5xl xl:h-12 xl:w-[435px] xl:text-6xl">
+						<svg width="100%" viewBox="0 0 300 35" class="w-full uppercase">
 							<text
-								x="50%"
-								y="49%"
-								text-anchor="middle"
+								x="0"
+								y="48%"
+								textLength="300"
+								lengthAdjust="spacingAndGlyphs"
 								dominant-baseline="central"
+								font-size="42"
 								font-family="Roboto Mono"
 								font-weight="bold"
 								fill="none"
