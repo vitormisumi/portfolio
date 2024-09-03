@@ -19,10 +19,10 @@
 			textDelay = 0;
 			projectsDelay = 0;
 		} else {
-			// duration = 1500;
-			// profileImageDelay = 1500;
-			// textDelay = 3000;
-			// projectsDelay = 4500;
+			duration = 1500;
+			profileImageDelay = 1500;
+			textDelay = 3000;
+			projectsDelay = 4500;
 		}
 		pageLoaded = true;
 	});
@@ -31,7 +31,7 @@
 {#if pageLoaded}
 	<div class="flex h-full w-full flex-col items-center justify-around landscape:flex-row">
 		<div
-			class="flex aspect-[1.5] w-fit max-w-xs flex-col justify-end gap-2 md:max-w-sm lg:max-w-md landscape:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md">
+			class="relative flex aspect-[1.5] w-fit max-w-xs flex-col justify-end gap-2 md:max-w-sm lg:max-w-md landscape:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md">
 			<div class="relative flex h-full flex-col items-center justify-end">
 				<div class="relative w-full" in:fly={{ y: 500, duration: duration }}>
 					<p class="w-full text-xs text-primary lg:text-base">

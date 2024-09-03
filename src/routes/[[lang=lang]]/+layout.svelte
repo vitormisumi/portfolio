@@ -36,7 +36,7 @@
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
-<div class="flex h-dvh flex-col justify-between">
+<div class="flex h-dvh flex-col justify-between overflow-hidden">
 	{#if pageLoaded}
 		<header
 			class="bg-gradient-to-b from-[#05090A] to-transparent p-4 lg:p-8 lg:px-12"
@@ -94,7 +94,7 @@
 		{/key}
 		<footer
 			class="flex items-center overflow-hidden whitespace-nowrap border-t border-secondary py-2 md:py-4"
-			in:fly={{ y: 100, delay: 0, duration: 1000 }}>
+			in:fly={{ y: 100, delay: 4500, duration: 1000 }}>
 			<div class="relative w-screen">
 				<div
 					class="absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-background via-background via-25% to-transparent">
