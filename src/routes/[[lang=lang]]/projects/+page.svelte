@@ -4,7 +4,7 @@
 
 	let { data } = $props();
 
-	let selectedProjectId = $state(data.projects[0].id);
+	let selectedProject = $state(data.projects[0]);
 	let selectedImageId = $state(data.projects[0].images[0].id);
 </script>
 
@@ -16,11 +16,11 @@
 				<li>
 					<button
 						class="list-item max-w-32 truncate text-left transition-colors hover:text-accent md:max-w-44 lg:max-w-60 {project.id ===
-						selectedProjectId
+						selectedProject.id
 							? 'underline underline-offset-4'
 							: ''}"
 						onclick={() => {
-							selectedProjectId = project.id;
+							selectedProject = project;
 							selectedImageId = data.projects[i].images[0].id;
 						}}>
 						{project.translations[0].title}
@@ -31,41 +31,39 @@
 	</nav>
 	<div
 		class="col-span-3 grid w-full max-w-xl place-items-center landscape:max-w-full landscape:place-items-start">
-		{#each data.projects as project}
-			{#if project.id === selectedProjectId}
-				<article
-					class="grid max-w-lg gap-4 landscape:max-w-full w-full landscape:grid-cols-2 landscape:gap-8 place-items-start"
-					in:fade>
-					<div class="grid gap-4 w-full">
-						<div>
-							<h2>{project.translations[0].title}</h2>
-							<h3 class="font-mono text-xs font-thin capitalize text-secondary">
-								<time datetime={project.start_date}>
-									{new Date(project.start_date)
-										.toLocaleDateString(project.translations[0].languages_code, {
-											year: '2-digit',
-											month: 'short'
-										})
-										.replace('. de', '')}
-								</time>
-								→
-								<time datetime={project.end_date}>
-									{new Date(project.end_date)
-										.toLocaleDateString(project.translations[0].languages_code, {
-											year: '2-digit',
-											month: 'short'
-										})
-										.replace('. de', '')}
-								</time>
-							</h3>
-						</div>
-						<div class="max-h-[25vh] w-full landscape:max-h-[50vh]">
-							{@html project.translations[0].description}
-						</div>
+		{#key selectedProject}
+			<article
+				class="grid w-full max-w-lg place-items-start gap-4 landscape:max-w-full landscape:grid-cols-2 landscape:gap-8"
+				in:fade>
+				<div class="grid w-full gap-4">
+					<div>
+						<h2>{selectedProject.translations[0].title}</h2>
+						<h3 class="font-mono text-xs font-thin capitalize text-secondary">
+							<time datetime={selectedProject.start_date}>
+								{new Date(selectedProject.start_date)
+									.toLocaleDateString(selectedProject.translations[0].languages_code, {
+										year: '2-digit',
+										month: 'short'
+									})
+									.replace('. de', '')}
+							</time>
+							→
+							<time datetime={selectedProject.end_date}>
+								{new Date(selectedProject.end_date)
+									.toLocaleDateString(selectedProject.translations[0].languages_code, {
+										year: '2-digit',
+										month: 'short'
+									})
+									.replace('. de', '')}
+							</time>
+						</h3>
 					</div>
-					<Screen {project} />
-				</article>
-			{/if}
-		{/each}
+					<div class="max-h-[25vh] w-full landscape:max-h-[50vh]">
+						{@html selectedProject.translations[0].description}
+					</div>
+				</div>
+				<Screen project={selectedProject} />
+			</article>
+		{/key}
 	</div>
 </section>

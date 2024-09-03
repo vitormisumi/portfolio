@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { page } from '$app/stores';
 
 	let { data } = $props();
 
@@ -43,35 +43,37 @@
 		</ul>
 	</nav>
 	<div class="col-span-3 flex w-full justify-center">
-		<article
-			class="grid max-w-lg place-items-center gap-4 landscape:max-w-full landscape:grid-cols-2 landscape:place-items-start landscape:gap-8"
-			in:fade>
-			<div class="grid gap-4">
-				<h2>{selectedSection.translations[0].section_title}</h2>
-				<div class="relative">
-					<div>
-						<div
-							class="absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b from-transparent to-background">
-						</div>
-						<div class="max-h-[25vh] w-full overflow-y-auto pb-10 landscape:max-h-[50vh]">
-							{@html selectedSection.translations[0].section_text}
+		{#key selectedSection}
+			<article
+				class="grid max-w-lg place-items-center gap-4 landscape:max-w-full landscape:grid-cols-2 landscape:place-items-start landscape:gap-8"
+				in:fade>
+				<div class="grid gap-4">
+					<h2>{selectedSection.translations[0].section_title}</h2>
+					<div class="relative">
+						<div>
+							<div
+								class="pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b from-transparent to-background">
+							</div>
+							<div class="max-h-[25vh] w-full overflow-y-auto pb-10 landscape:max-h-[50vh]">
+								{@html selectedSection.translations[0].section_text}
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			{#if selectedSection.images.length}
-				<div class="grid">
-					{#key currentImageIndex}
-						<img
-							src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
-							alt={$page.params.lang === 'pt'
-								? 'Vitor trabalhando com futebol'
-								: 'Vitor working with football'}
-							class="row-start-1 col-start-1 rounded-lg border border-secondary p-2 shadow-2xl shadow-secondary/20 md:p-4 landscape:p-2"
-							transition:fade={{ duration: 1000 }} />
-					{/key}
-				</div>
-			{/if}
-		</article>
+				{#if selectedSection.images.length}
+					<div class="grid">
+						{#key currentImageIndex}
+							<img
+								src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
+								alt={$page.params.lang === 'pt'
+									? 'Vitor trabalhando com futebol'
+									: 'Vitor working with football'}
+								class="col-start-1 row-start-1 rounded-lg border border-secondary p-2 shadow-2xl shadow-secondary/20 md:p-4 landscape:p-2"
+								transition:fade={{ duration: 1000 }} />
+						{/key}
+					</div>
+				{/if}
+			</article>
+		{/key}
 	</div>
 </section>

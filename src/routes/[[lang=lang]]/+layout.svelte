@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { fade, fly, slide } from 'svelte/transition';
+	import { blur, fade, fly, slide } from 'svelte/transition';
 
 	let { children, data } = $props();
 
@@ -36,7 +36,7 @@
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
-<div class="flex h-screen flex-col justify-between">
+<div class="flex h-dvh flex-col justify-between">
 	{#if pageLoaded}
 		<header
 			class="bg-gradient-to-b from-[#05090A] to-transparent p-4 lg:p-8 lg:px-12"
@@ -88,8 +88,7 @@
 				class={showMenu
 					? 'pointer-events-none opacity-5 transition-colors'
 					: 'h-full overflow-hidden p-6 opacity-100 md:p-8 landscape:p-24 landscape:xl:px-32'}
-				in:fly={{ y: 200, delay: 400 }}
-				out:fly={{ y: -200 }}>
+				in:fade>
 				{@render children()}
 			</main>
 		{/key}

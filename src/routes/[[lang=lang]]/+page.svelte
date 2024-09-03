@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { draw, fade, fly } from 'svelte/transition';
 	import Carousel from './Carousel.svelte';
 
 	let { data } = $props();
