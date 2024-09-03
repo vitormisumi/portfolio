@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, blur } from 'svelte/transition';
 
 	let { data } = $props();
 
@@ -25,10 +25,9 @@
 </script>
 
 <section
-	class="fixed top-0 -z-10 flex h-screen w-full flex-col items-center gap-4 px-6 py-16 text-secondary md:gap-8 md:px-12 md:py-20 landscape:grid landscape:grid-cols-4 landscape:place-items-center landscape:gap-8 landscape:space-y-0 landscape:lg:px-20 landscape:xl:px-28">
-	<nav class="max-h-96 w-full max-w-xl landscape:h-full landscape:max-w-full">
-		<ul
-			class="flex justify-around overflow-x-auto font-mono text-xs landscape:inline landscape:space-x-0 landscape:space-y-4 landscape:text-base">
+	class="flex flex-col items-center gap-4 md:gap-8 landscape:grid landscape:grid-cols-4 landscape:items-start landscape:gap-8">
+	<nav class="max-h-96 w-full max-w-xl landscape:max-w-full">
+		<ul class="flex gap-6 overflow-x-auto font-mono text-xs landscape:flex-col landscape:text-base">
 			{#each data.about_sections as section}
 				<li>
 					<button
@@ -43,25 +42,32 @@
 			{/each}
 		</ul>
 	</nav>
-	<div
-		class="col-span-3 grid max-h-96 w-full max-w-xl place-items-center landscape:h-full landscape:max-w-full landscape:place-items-start">
+	<div class="col-span-3 flex w-full justify-center">
 		{#each data.about_sections as section}
 			{#if section.id === selectedSection.id}
-				<article class="space-y-4" in:fade>
-					<h2>{section.translations[0].section_title}</h2>
-					<div class="grid gap-4 md:gap-8 landscape:grid-cols-2">
+				<article
+					class="grid max-w-lg place-items-center gap-4 landscape:max-w-full landscape:grid-cols-2 landscape:place-items-start landscape:gap-8"
+					in:fade>
+					<div class="grid gap-4">
+						<h2>{section.translations[0].section_title}</h2>
 						<div class="relative">
-							<div
-								class="from-transparent absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b to-background">
-							</div>
-							<div class="max-h-48 w-full overflow-y-auto pb-10 md:max-h-72 lg:max-h-96">
-								{@html section.translations[0].section_text}
+							<div>
+								<div
+									class="absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b from-transparent to-background">
+								</div>
+								<div class="max-h-[25vh] w-full overflow-y-auto pb-10 landscape:max-h-[50vh]">
+									{@html section.translations[0].section_text}
+								</div>
 							</div>
 						</div>
-						<img
-							src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
-							alt=""
-							class="w-full rounded-lg border p-2 md:p-4 landscape:p-2" />
+					</div>
+					<div class="w-full max-w-md rounded-lg border border-secondary p-2 md:p-4 landscape:p-2 transition-transform duration-500">
+						{#key currentImageIndex}
+							<img
+								src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
+								alt=""
+								in:blur />
+						{/key}
 					</div>
 				</article>
 			{/if}

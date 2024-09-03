@@ -24,10 +24,7 @@
 	}
 </script>
 
-<div
-	aria-roledescription="carousel"
-	role="region"
-	class="w-full place-self-center landscape:place-self-start">
+<div aria-roledescription="carousel" role="region" class="w-full flex justify-center">
 	<figure
 		class="relative flex items-center justify-between overflow-hidden border-[#000] shadow-sm shadow-primary drop-shadow-xl {project.images_frame ===
 		'mobile'

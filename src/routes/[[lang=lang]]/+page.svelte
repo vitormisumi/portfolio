@@ -30,7 +30,7 @@
 
 {#if pageLoaded}
 	<div
-		class="fixed top-0 -z-10 flex h-screen w-full flex-col items-center justify-evenly landscape:flex-row">
+		class="flex h-[80vh] w-full flex-col items-center justify-evenly landscape:h-[50vh] landscape:flex-row landscape:justify-around">
 		<div
 			class="flex aspect-[1.5] w-fit max-w-sm flex-col justify-end gap-2 md:max-w-md lg:max-w-lg">
 			<div class="relative flex h-full flex-col items-center justify-end">

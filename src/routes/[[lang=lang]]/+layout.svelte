@@ -38,7 +38,7 @@
 <svelte:window bind:innerWidth bind:innerHeight />
 {#if pageLoaded}
 	<header
-		class="to-transparent bg-gradient-to-b from-[#05090A] p-4 lg:p-8"
+		class="bg-gradient-to-b from-[#05090A] to-transparent p-4 lg:p-8"
 		in:fly={{ y: -100, delay: 4500, duration: 1000 }}>
 		<button class="text-secondary landscape:hidden" onclick={toggleMenu}>
 			<iconify-icon icon="mdi:menu"></iconify-icon>
@@ -71,8 +71,8 @@
 						onclick={() => (showMenu = false)}>{lang === 'pt' ? 'Contato' : 'Contacts'}</a>
 				</nav>
 				<div class="grid grid-cols-2 place-items-center divide-x divide-secondary text-secondary">
-					<a href="/pt/{route}" class="pr-2">PT</a>
-					<a href="/en/{route}" class="pl-2">EN</a>
+					<a href="/pt/{route}" class="pr-2" onclick={() => (showMenu = false)}>PT</a>
+					<a href="/en/{route}" class="pl-2" onclick={() => (showMenu = false)}>EN</a>
 				</div>
 			</div>
 		{/if}
@@ -84,7 +84,9 @@
 		in:fade={{ delay: 4500 }} />
 	{#key data.url}
 		<main
-			class={showMenu ? 'pointer-events-none opacity-5 transition-colors' : 'opacity-100'}
+			class={showMenu
+				? 'pointer-events-none opacity-5 transition-colors'
+				: 'p-6 opacity-100 md:p-8 landscape:p-24 landscape:lg:px-32'}
 			in:fly={{ y: 200, delay: 400 }}
 			out:fly={{ y: -200 }}>
 			{@render children()}
@@ -95,9 +97,9 @@
 		in:fly={{ y: 100, delay: 4500, duration: 1000 }}>
 		<div class="relative w-screen">
 			<div
-				class="to-transparent absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-background via-background via-25%">
+				class="absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-background via-background via-25% to-transparent">
 			</div>
-			<ul class="animate-infinite-scroll inline-block w-max text-lg text-secondary">
+			<ul class="inline-block w-max animate-infinite-scroll text-lg text-secondary">
 				{#each data.technologies as technology}
 					<li class="mx-8 inline h-16 md:mx-16 lg:mx-20">
 						<i class="devicon-{technology.name}-plain"></i>
@@ -105,7 +107,7 @@
 				{/each}
 			</ul>
 			<ul
-				class="animate-infinite-scroll inline-block w-max text-lg text-secondary"
+				class="inline-block w-max animate-infinite-scroll text-lg text-secondary"
 				aria-hidden="true">
 				{#each data.technologies as technology}
 					<li class="mx-8 inline h-16 md:mx-16 lg:mx-20">
@@ -114,7 +116,7 @@
 				{/each}
 			</ul>
 			<div
-				class="to-transparent absolute right-0 top-0 z-50 h-full w-1/12 bg-gradient-to-l from-background via-background via-25%">
+				class="absolute right-0 top-0 z-50 h-full w-1/12 bg-gradient-to-l from-background via-background via-25% to-transparent">
 			</div>
 		</div>
 	</footer>

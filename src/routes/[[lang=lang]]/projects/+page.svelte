@@ -8,15 +8,13 @@
 	let selectedImageId = $state(data.projects[0].images[0].id);
 </script>
 
-<section
-	class="fixed top-0 -z-10 flex h-screen w-full flex-col items-center gap-4 px-6 py-16 text-secondary md:gap-8 md:px-12 md:py-20 landscape:grid landscape:grid-cols-4 landscape:place-items-center landscape:gap-8 landscape:space-y-0 landscape:lg:px-20 landscape:xl:px-28">
-	<nav class="max-h-96 w-full max-w-xl landscape:h-full landscape:max-w-full">
-		<ul
-			class="flex justify-around gap-4 overflow-x-auto font-mono text-xs landscape:flex-col landscape:text-base">
+<section class="flex flex-col gap-4 md:gap-8 landscape:grid landscape:grid-cols-4 items-center landscape:items-start landscape:gap-8">
+	<nav class="max-h-96 w-full max-w-xl landscape:max-w-full">
+		<ul class="flex gap-6 overflow-x-auto font-mono text-xs landscape:flex-col landscape:text-base">
 			{#each data.projects as project, i}
-				<li class="w-full">
+				<li>
 					<button
-						class="list-item max-w-32 md:max-w-44 lg:max-w-60 truncate text-left transition-colors hover:text-accent {project.id ===
+						class="list-item max-w-32 truncate text-left transition-colors hover:text-accent md:max-w-44 lg:max-w-60 {project.id ===
 						selectedProjectId
 							? 'underline underline-offset-4'
 							: ''}"
@@ -31,15 +29,14 @@
 		</ul>
 	</nav>
 	<div
-		class="col-span-3 grid max-h-96 w-full max-w-xl place-items-center landscape:h-full landscape:max-w-full landscape:place-items-start">
+		class="col-span-3 grid w-full max-w-xl place-items-center landscape:max-w-full landscape:place-items-start">
 		{#each data.projects as project}
 			{#if project.id === selectedProjectId}
-				<article
-					class="flex h-[70vh] w-full flex-col justify-between gap-4 md:h-[75vh] landscape:h-[60vh] landscape:flex-row">
-					<div class="landscape:max-w-xs space-y-4 landscape:md:max-w-sm" in:fade>
+				<article class="grid landscape:grid-cols-2 gap-4 landscape:gap-8 place-items-center landscape:place-items-start max-w-lg landscape:max-w-full" in:fade>
+					<div class="grid gap-4">
 						<div>
 							<h2>{project.translations[0].title}</h2>
-							<h3 class="font-mono text-xs font-thin capitalize">
+							<h3 class="font-mono text-xs font-thin capitalize text-secondary">
 								<time datetime={project.start_date}>
 									{new Date(project.start_date)
 										.toLocaleDateString(project.translations[0].languages_code, {
@@ -59,7 +56,7 @@
 								</time>
 							</h3>
 						</div>
-						<div class="w-full landscape:lg:min-w-96">
+						<div class="max-h-[25vh] landscape:max-h-[50vh] w-full">
 							{@html project.translations[0].description}
 						</div>
 					</div>
