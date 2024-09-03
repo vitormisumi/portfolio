@@ -63,7 +63,7 @@
 							{@html project.translations[0].description}
 						</div>
 					</div>
-					<Screen {project} {data} />
+					<Screen {project} />
 				</article>
 			{/if}
 		{/each}
