@@ -8,7 +8,8 @@
 	let selectedImageId = $state(data.projects[0].images[0].id);
 </script>
 
-<section class="flex flex-col gap-4 md:gap-8 landscape:grid landscape:grid-cols-4 items-center landscape:items-start landscape:gap-8">
+<section
+	class="flex flex-col items-center gap-4 md:gap-8 landscape:grid landscape:grid-cols-4 landscape:items-start landscape:gap-8">
 	<nav class="max-h-96 w-full max-w-xl landscape:max-w-full">
 		<ul class="flex gap-6 overflow-x-auto font-mono text-xs landscape:flex-col landscape:text-base">
 			{#each data.projects as project, i}
@@ -32,8 +33,10 @@
 		class="col-span-3 grid w-full max-w-xl place-items-center landscape:max-w-full landscape:place-items-start">
 		{#each data.projects as project}
 			{#if project.id === selectedProjectId}
-				<article class="grid landscape:grid-cols-2 gap-4 landscape:gap-8 place-items-center landscape:place-items-start max-w-lg landscape:max-w-full" in:fade>
-					<div class="grid gap-4">
+				<article
+					class="grid max-w-lg gap-4 landscape:max-w-full w-full landscape:grid-cols-2 landscape:gap-8 place-items-start"
+					in:fade>
+					<div class="grid gap-4 w-full">
 						<div>
 							<h2>{project.translations[0].title}</h2>
 							<h3 class="font-mono text-xs font-thin capitalize text-secondary">
@@ -56,7 +59,7 @@
 								</time>
 							</h3>
 						</div>
-						<div class="max-h-[25vh] landscape:max-h-[50vh] w-full">
+						<div class="max-h-[25vh] w-full landscape:max-h-[50vh]">
 							{@html project.translations[0].description}
 						</div>
 					</div>

@@ -66,6 +66,7 @@
 							<img
 								src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
 								alt=""
+								class="shadow-2xl shadow-secondary/20"
 								in:blur />
 						{/key}
 					</div>

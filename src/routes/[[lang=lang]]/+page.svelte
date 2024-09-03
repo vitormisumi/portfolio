@@ -43,7 +43,7 @@
 							class="absolute -z-10 h-8 w-[260px] text-4xl uppercase md:h-10 md:w-[345px] md:text-5xl lg:h-12 lg:w-[435px] lg:text-6xl">
 							<text
 								x="50%"
-								y="50%"
+								y="49%"
 								text-anchor="middle"
 								dominant-baseline="central"
 								font-family="Roboto Mono"
@@ -58,7 +58,7 @@
 							class="h-8 w-[260px] text-4xl uppercase md:h-10 md:w-[345px] md:text-5xl lg:h-12 lg:w-[435px] lg:text-6xl">
 							<text
 								x="50%"
-								y="50%"
+								y="49%"
 								text-anchor="middle"
 								dominant-baseline="central"
 								font-family="Roboto Mono"

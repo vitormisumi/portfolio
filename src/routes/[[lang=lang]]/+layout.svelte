@@ -86,7 +86,7 @@
 		<main
 			class={showMenu
 				? 'pointer-events-none opacity-5 transition-colors'
-				: 'p-6 opacity-100 md:p-8 landscape:p-24 landscape:lg:px-32'}
+				: 'p-6 opacity-100 md:p-8 landscape:p-24 landscape:lg:px-32 overflow-hidden'}
 			in:fly={{ y: 200, delay: 400 }}
 			out:fly={{ y: -200 }}>
 			{@render children()}
