@@ -20,6 +20,12 @@
 	}
 	a,
 	button {
-		@apply text-secondary transition-colors hover:text-accent;
+		@apply text-secondary transition-colors hover:text-accent font-mono;
+	}
+	label {
+	    @apply text-secondary font-mono;
+	}
+	input, textarea {
+	    @apply bg-secondary text-primary rounded placeholder:text-background/50 px-2 py-1;
 	}
 }
