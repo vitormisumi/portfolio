@@ -17,7 +17,9 @@ export async function load({ fetch, params }) {
 				fields: ['*.*.*', { translations: ['*'] }]
 			})
 		),
-        technologies: await directus.request(readItems('technologies')),
-        profiles: await directus.request(readItems('profiles'))
-    } as unknown as { home: Home; technologies: Technology[]; profiles: Profile[] };
+		technologies: await directus.request(readItems('technologies')),
+		profiles: await directus.request(readItems('profiles'))
+	} as unknown as { home: Home; technologies: Technology[]; profiles: Profile[] };
 }
+
+export const prerender = true;
