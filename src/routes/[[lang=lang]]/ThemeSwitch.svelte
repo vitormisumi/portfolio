@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 
-	let darkMode = $state(true);
+	let darkMode = $state(false);
 
 	function toggleTheme() {
 		darkMode = !darkMode;
@@ -28,7 +28,7 @@
 </script>
 
 <button
-	class="hover:text-light hover:dark:text-dark flex aspect-square items-center justify-center rounded border p-2 hover:bg-secondary size-8 hover:border-secondary"
+	class="hover:text-light hover:dark:text-dark flex aspect-square items-center justify-center rounded p-2 hover:bg-secondary size-8"
 	aria-label={darkMode ? 'dark mode' : 'light mode'}
 	onclick={toggleTheme}>
 	<iconify-icon icon={darkMode ? 'ic:round-dark-mode' : 'ic:round-light-mode'}></iconify-icon>
