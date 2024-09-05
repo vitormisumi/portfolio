@@ -168,16 +168,20 @@
 				<ul class="inline-block w-max animate-infinite-scroll text-secondary">
 					{#each data.technologies as technology}
 						<li class="mx-8 inline md:mx-16 lg:mx-20">
-							<iconify-icon icon="simple-icons:{technology.name}" class="inline-block size-4"
-							></iconify-icon>
+							<iconify-icon
+								icon="simple-icons:{technology.name}"
+								class="inline-block h-4 w-4"
+								noobserver></iconify-icon>
 						</li>
 					{/each}
 				</ul>
 				<ul class="inline-block w-max animate-infinite-scroll text-secondary" aria-hidden="true">
 					{#each data.technologies as technology}
 						<li class="mx-8 inline md:mx-16 lg:mx-20">
-							<iconify-icon icon="simple-icons:{technology.name}" class="inline-block size-4"
-							></iconify-icon>
+							<iconify-icon
+								icon="simple-icons:{technology.name}"
+								class="inline-block h-4 w-4"
+								noobserver></iconify-icon>
 						</li>
 					{/each}
 				</ul>
