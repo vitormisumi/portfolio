@@ -159,15 +159,15 @@
 			</main>
 		{/key}
 		<footer
-			class="flex items-center overflow-hidden whitespace-nowrap border-t border-secondary py-2 md:py-4"
+			class="flex items-center overflow-hidden whitespace-nowrap border-t border-secondary"
 			in:fly={{ y: 100, delay: 4500, duration: route ? 0 : 1000 }}>
-			<div class="relative w-screen">
+			<div class="relative w-screen py-2 md:py-4">
 				<div
-					class="from-light dark:from-dark dark:via-dark via-light absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r via-25% to-transparent transition-colors">
+					class="from-light via-light dark:from-dark dark:via-dark absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r via-25% to-transparent transition-colors">
 				</div>
 				<ul class="inline-block w-max animate-infinite-scroll text-secondary">
 					{#each data.technologies as technology}
-						<li class="mx-8 inline md:mx-16 lg:mx-20">
+						<li class="mx-8 inline align-middle md:mx-16 lg:mx-20">
 							<iconify-icon
 								icon="simple-icons:{technology.name}"
 								class="inline-block h-4 w-4"
@@ -177,7 +177,7 @@
 				</ul>
 				<ul class="inline-block w-max animate-infinite-scroll text-secondary" aria-hidden="true">
 					{#each data.technologies as technology}
-						<li class="mx-8 inline md:mx-16 lg:mx-20">
+						<li class="mx-8 inline align-middle md:mx-16 lg:mx-20">
 							<iconify-icon
 								icon="simple-icons:{technology.name}"
 								class="inline-block h-4 w-4"
