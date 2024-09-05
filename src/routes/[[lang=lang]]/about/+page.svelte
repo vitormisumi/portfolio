@@ -33,8 +33,7 @@
 			{#each data.about_sections as section}
 				<li>
 					<button
-						class="list-item text-left transition-colors hover:text-accent {section.id ===
-						selectedSection.id
+						class="list-item text-left hover:text-accent {section.id === selectedSection.id
 							? 'underline underline-offset-4'
 							: ''}"
 						onclick={() => (selectedSection = section)}>

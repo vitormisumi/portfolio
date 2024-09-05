@@ -83,7 +83,7 @@
 			<input type="hidden" name="redirect" value="https://vitormisumi.com/thanks" />
 			<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 			<button
-				class="text-light hover:text-light bg-dark hover:bg-dark/90 dark:bg-light dark:text-dark dark:hover:bg-light/90 rounded px-4 py-2 font-medium transition-colors">
+				class="text-light hover:text-light bg-dark hover:bg-dark/90 dark:bg-light dark:text-dark dark:hover:bg-light/90 rounded px-4 py-2 font-medium">
 				{$page.params.lang === 'pt' ? 'Enviar' : 'Send'}
 			</button>
 		</form>

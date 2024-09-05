@@ -45,7 +45,7 @@
 			? document.documentElement.classList.add('dark')
 			: document.documentElement.classList.remove('dark');
 
-        toggleMenu()
+		showMenu = false;
 	}
 
 	if (browser) {

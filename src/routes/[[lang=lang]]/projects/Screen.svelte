@@ -45,13 +45,13 @@
 				out:fly={{ x: scrollDirection === 'forward' ? 500 : -500 }} />
 		{/key}
 		<button
-			class="bg-dark/25 hover:bg-dark flex size-8 items-center justify-center rounded-full transition-colors disabled:opacity-10"
+			class="bg-dark/25 hover:bg-dark flex size-8 items-center justify-center rounded-full disabled:opacity-10"
 			disabled={selectedImageIndex === 0}
 			onclick={() => previousImage(selectedImageIndex)}>
 			<iconify-icon icon="ep:arrow-left"></iconify-icon>
 		</button>
 		<button
-			class="bg-dark/25 hover:bg-dark flex size-8 items-center justify-center rounded-full transition-colors disabled:opacity-10"
+			class="bg-dark/25 hover:bg-dark flex size-8 items-center justify-center rounded-full disabled:opacity-10"
 			disabled={selectedImageIndex === project.images.length - 1}
 			onclick={() => nextImage(selectedImageIndex)}>
 			<iconify-icon icon="ep:arrow-right"></iconify-icon>

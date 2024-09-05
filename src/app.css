@@ -4,16 +4,16 @@
 
 @layer base {
 	h1 {
-		@apply font-roboto text-xl font-medium text-light;
+		@apply text-light font-roboto text-xl font-medium transition-colors;
 	}
 	h2 {
-		@apply text-dark dark:text-light font-roboto text-base font-medium landscape:text-xl;
+		@apply text-dark dark:text-light font-roboto text-base font-medium transition-colors landscape:text-xl;
 	}
 	h3 {
-		@apply text-dark dark:text-light font-roboto text-sm landscape:text-base;
+		@apply text-dark dark:text-light font-roboto text-sm transition-colors landscape:text-base;
 	}
 	p {
-		@apply font-mono text-xs font-extralight text-secondary landscape:text-base;
+		@apply font-mono text-xs font-extralight text-secondary transition-colors landscape:text-base;
 	}
 	body {
 		@apply bg-light dark:bg-dark transition-colors;
@@ -27,6 +27,6 @@
 	}
 	input,
 	textarea {
-		@apply placeholder:text-secondary text-dark rounded bg-secondary/20 px-2 py-1;
+		@apply text-dark rounded bg-secondary/20 px-2 py-1 placeholder:text-secondary;
 	}
 }
