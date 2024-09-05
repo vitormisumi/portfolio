@@ -28,7 +28,7 @@
 </script>
 
 <section class="flex w-full justify-center">
-	<div class="flex w-full max-w-xs flex-col gap-4 md:max-w-md">
+	<div class="flex w-full flex-col gap-4 max-w-lg">
 		<p>
 			{$page.params.lang === 'pt'
 				? 'Você pode me encontrar nesses perfis:'
@@ -46,8 +46,8 @@
 		</div>
 		<p>
 			{$page.params.lang === 'pt'
-				? '...ou enviar uma mensagem diretamente utilizando o formulário abaixo:'
-				: '...or send me a direct message using the form below:'}
+				? 'Ou enviar uma mensagem diretamente através do formulário abaixo:'
+				: 'Or send me a direct message using the form below:'}
 		</p>
 		<form class="flex w-full flex-col items-center gap-4" {onsubmit}>
 			<label class="grid w-full">

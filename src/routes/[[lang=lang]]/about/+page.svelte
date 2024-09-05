@@ -50,7 +50,7 @@
 				class="grid max-w-lg place-items-center gap-4 landscape:max-w-full landscape:grid-cols-2 landscape:place-items-start landscape:gap-8"
 				aria-labelledby="article-title"
 				in:fade>
-				<div class="grid gap-4">
+				<div class="grid gap-4 {selectedSection.images.length ? '' : 'landscape:col-span-2'}">
 					<h2 id="article-title">{selectedSection.translations[0].section_title}</h2>
 					<div class="relative">
 						<div>
@@ -59,7 +59,10 @@
 							</div>
 							<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 							<div
-								class="max-h-[25vh] w-full overflow-y-auto pb-10 landscape:max-h-[50vh]"
+								class="w-full overflow-y-auto pb-10 landscape:max-h-[50vh] {selectedSection.images
+									.length
+									? 'max-h-[25vh]'
+									: 'max-h-[65vh]'}"
 								tabindex="0"
 								role="region"
 								aria-label={$page.params.lang === 'pt' ? 'Texto rolável' : 'Scrollable text'}>
