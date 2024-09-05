@@ -11,7 +11,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				jet: ['JetBrains Mono'],
+				mono: ['JetBrains Mono'],
 				roboto: ['Roboto Mono']
 			},
 			animation: {

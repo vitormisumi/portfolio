@@ -71,7 +71,7 @@
 						{data.home.name}
 					</a>
 					<div
-						class="flex w-1/2 flex-col justify-around gap-2 font-jet text-sm landscape:flex-row landscape:text-base">
+						class="flex w-1/2 flex-col justify-around gap-2 text-sm landscape:flex-row landscape:text-base">
 						<a
 							href="/{lang}/about"
 							class={route === 'about' ? 'underline underline-offset-4' : ''}
@@ -129,19 +129,17 @@
 				<div
 					class="absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-background via-background via-25% to-transparent">
 				</div>
-				<ul class="inline-block w-max animate-infinite-scroll text-lg text-secondary">
+				<ul class="inline-block w-max animate-infinite-scroll text-secondary">
 					{#each data.technologies as technology}
-						<li class="mx-8 inline h-16 md:mx-16 lg:mx-20">
-							<iconify-icon icon="simple-icons:{technology.name}"></iconify-icon>
+						<li class="mx-8 inline md:mx-16 lg:mx-20">
+							<iconify-icon icon="simple-icons:{technology.name}" class="inline-block size-4"></iconify-icon>
 						</li>
 					{/each}
 				</ul>
-				<ul
-					class="inline-block w-max animate-infinite-scroll text-lg text-secondary"
-					aria-hidden="true">
+				<ul class="inline-block w-max animate-infinite-scroll text-secondary" aria-hidden="true">
 					{#each data.technologies as technology}
-						<li class="mx-8 inline h-16 md:mx-16 lg:mx-20">
-							<iconify-icon icon="simple-icons:{technology.name}"></iconify-icon>
+						<li class="mx-8 inline md:mx-16 lg:mx-20">
+							<iconify-icon icon="simple-icons:{technology.name}" class="inline-block size-4"></iconify-icon>
 						</li>
 					{/each}
 				</ul>

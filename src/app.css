@@ -13,7 +13,7 @@
 		@apply font-roboto text-sm text-primary landscape:text-base;
 	}
 	p {
-		@apply font-jet text-xs font-extralight text-secondary landscape:text-base;
+		@apply font-mono text-xs font-extralight text-secondary landscape:text-base;
 	}
 	body {
 		@apply bg-background;
