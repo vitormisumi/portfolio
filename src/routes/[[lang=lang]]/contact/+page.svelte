@@ -28,7 +28,7 @@
 </script>
 
 <section class="flex w-full justify-center">
-	<div class="flex w-full flex-col gap-4 max-w-lg">
+	<div class="flex w-full max-w-lg flex-col gap-4">
 		<p>
 			{$page.params.lang === 'pt'
 				? 'Você pode me encontrar nesses perfis:'
@@ -81,12 +81,12 @@
 					rows="5"></textarea>
 			</label>
 			<input type="hidden" name="redirect" value="https://vitormisumi.com/thanks" />
-			<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+			<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 			<button
-				class="rounded bg-primary px-4 py-2 font-medium text-background transition-colors hover:bg-primary/90 hover:text-background">
+				class="text-light hover:text-light bg-dark hover:bg-dark/90 dark:bg-light dark:text-dark dark:hover:bg-light/90 rounded px-4 py-2 font-medium transition-colors">
 				{$page.params.lang === 'pt' ? 'Enviar' : 'Send'}
 			</button>
 		</form>
-		<p class="text-primary">{status}</p>
+		<p class="text-dark">{status}</p>
 	</div>
 </section>

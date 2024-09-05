@@ -55,7 +55,7 @@
 					<div class="relative">
 						<div>
 							<div
-								class="pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b from-transparent to-background">
+								class="to-light dark:to-dark pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b from-transparent">
 							</div>
 							<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 							<div

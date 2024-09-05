@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { fade, fly, slide } from 'svelte/transition';
+	import ThemeSwitch from './ThemeSwitch.svelte';
 
 	let { children, data } = $props();
 
@@ -46,7 +47,7 @@
 <div class="flex h-dvh flex-col justify-between overflow-hidden">
 	{#if pageLoaded}
 		<header
-			class="bg-gradient-to-b from-[#05090A] to-transparent px-6 py-4 lg:px-12 lg:py-8"
+			class="from-dark/10 dark:from-light/5 bg-gradient-to-b to-transparent px-6 py-4 lg:px-12 lg:py-8"
 			in:fly={{ y: -100, delay: 4500, duration: route ? 0 : 1000 }}>
 			<button
 				class="text-secondary landscape:hidden"
@@ -87,21 +88,25 @@
 							class={route === 'contact' ? 'underline underline-offset-4' : ''}
 							onclick={() => (showMenu = false)}>{lang === 'pt' ? 'Contato' : 'Contact'}</a>
 					</div>
-					<div class="grid grid-cols-2 place-items-center divide-x divide-secondary text-secondary">
-						<a
-							href="/pt/{route}"
-							lang="pt"
-							aria-label="Mudar para Português"
-							aria-current={$page.params.lang === 'pt' ? 'true' : 'false'}
-							class="pr-2"
-							onclick={() => (showMenu = false)}>PT</a>
-						<a
-							href="/en/{route}"
-							lang="en"
-							aria-label="Change to English"
-							aria-current={$page.params.lang === 'en' ? 'true' : 'false'}
-							class="pl-2"
-							onclick={() => (showMenu = false)}>EN</a>
+					<div class="flex flex-col landscape:flex-row gap-4 landscape:gap-8">
+						<ThemeSwitch />
+						<div
+							class="grid grid-cols-2 place-items-center divide-x divide-secondary text-secondary">
+							<a
+								href="/pt/{route}"
+								lang="pt"
+								aria-label="Mudar para Português"
+								aria-current={$page.params.lang === 'pt' ? 'true' : 'false'}
+								class="pr-2"
+								onclick={() => (showMenu = false)}>PT</a>
+							<a
+								href="/en/{route}"
+								lang="en"
+								aria-label="Change to English"
+								aria-current={$page.params.lang === 'en' ? 'true' : 'false'}
+								class="pl-2"
+								onclick={() => (showMenu = false)}>EN</a>
+						</div>
 					</div>
 				</nav>
 			{/if}
@@ -109,7 +114,14 @@
 		<img
 			src="https://directus.vitormisumi.com/assets/{data.home.bg_image.id}?width=600&format=auto"
 			alt={$page.params.lang === 'pt' ? 'Linhas de código' : 'Code lines'}
-			class="absolute left-0 top-12 -z-20 rounded-none opacity-5 lg:left-12 lg:h-4/5 {showMenu
+			class="absolute left-0 top-16 -z-20 rounded-none opacity-10 lg:left-12 lg:h-4/5 dark:hidden {showMenu
+				? 'hidden'
+				: ''}"
+			in:fade={{ delay: 4500 }} />
+		<img
+			src="https://directus.vitormisumi.com/assets/{data.home.dark_bg_image.id}?width=600&format=auto"
+			alt={$page.params.lang === 'pt' ? 'Linhas de código' : 'Code lines'}
+			class="absolute left-0 top-16 -z-20 rounded-none opacity-10 lg:left-12 lg:h-4/5 hidden dark:block {showMenu
 				? 'hidden'
 				: ''}"
 			in:fade={{ delay: 4500 }} />
@@ -127,24 +139,26 @@
 			in:fly={{ y: 100, delay: 4500, duration: route ? 0 : 1000 }}>
 			<div class="relative w-screen">
 				<div
-					class="absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-background via-background via-25% to-transparent">
+					class="from-light dark:from-dark dark:via-dark via-light absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r via-25% to-transparent transition-colors">
 				</div>
 				<ul class="inline-block w-max animate-infinite-scroll text-secondary">
 					{#each data.technologies as technology}
 						<li class="mx-8 inline md:mx-16 lg:mx-20">
-							<iconify-icon icon="simple-icons:{technology.name}" class="inline-block size-4"></iconify-icon>
+							<iconify-icon icon="simple-icons:{technology.name}" class="inline-block size-4"
+							></iconify-icon>
 						</li>
 					{/each}
 				</ul>
 				<ul class="inline-block w-max animate-infinite-scroll text-secondary" aria-hidden="true">
 					{#each data.technologies as technology}
 						<li class="mx-8 inline md:mx-16 lg:mx-20">
-							<iconify-icon icon="simple-icons:{technology.name}" class="inline-block size-4"></iconify-icon>
+							<iconify-icon icon="simple-icons:{technology.name}" class="inline-block size-4"
+							></iconify-icon>
 						</li>
 					{/each}
 				</ul>
 				<div
-					class="absolute right-0 top-0 z-50 h-full w-1/12 bg-gradient-to-l from-background via-background via-25% to-transparent">
+					class="from-light dark:from-dark dark:via-dark via-light absolute right-0 top-0 z-50 h-full w-1/12 bg-gradient-to-l via-25% to-transparent transition-colors">
 				</div>
 			</div>
 		</footer>

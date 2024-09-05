@@ -10,7 +10,8 @@ export interface Home {
 	id: number;
 	name: string;
 	profile_image: Image;
-	bg_image: Image;
+    bg_image: Image;
+    dark_bg_image: Image;
 	images: Image[];
 	projects: Project[];
 	translations: HomeTranslation[];

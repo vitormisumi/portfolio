@@ -4,28 +4,29 @@
 
 @layer base {
 	h1 {
-		@apply font-roboto text-xl font-medium text-secondary;
+		@apply font-roboto text-xl font-medium text-light;
 	}
 	h2 {
-		@apply font-roboto text-base font-medium text-primary landscape:text-xl;
+		@apply text-dark dark:text-light font-roboto text-base font-medium landscape:text-xl;
 	}
 	h3 {
-		@apply font-roboto text-sm text-primary landscape:text-base;
+		@apply text-dark dark:text-light font-roboto text-sm landscape:text-base;
 	}
 	p {
 		@apply font-mono text-xs font-extralight text-secondary landscape:text-base;
 	}
 	body {
-		@apply bg-background;
+		@apply bg-light dark:bg-dark transition-colors;
 	}
 	a,
 	button {
-		@apply text-secondary transition-colors hover:text-accent font-mono;
+		@apply font-mono text-secondary transition-colors hover:text-accent;
 	}
 	label {
-	    @apply text-secondary font-mono;
+		@apply font-mono text-secondary;
 	}
-	input, textarea {
-	    @apply bg-secondary text-primary rounded placeholder:text-background/50 px-2 py-1;
+	input,
+	textarea {
+		@apply placeholder:text-secondary text-dark rounded bg-secondary/20 px-2 py-1;
 	}
 }

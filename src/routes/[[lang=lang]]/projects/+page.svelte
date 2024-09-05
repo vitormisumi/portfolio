@@ -37,9 +37,9 @@
 				in:fade>
 				<div class="grid w-full gap-4">
 					<div>
-						<a href={selectedProject.link} class="font-roboto text-lg font-medium text-primary"
+						<a href={selectedProject.link} class="text-dark dark:text-light font-roboto text-lg font-medium"
 							>{selectedProject.translations[0].title}</a>
-						<h3 class="font-mono text-xs font-extralight capitalize text-secondary">
+						<h3 class="font-mono text-xs font-extralight capitalize text-secondary dark:text-secondary">
 							<time datetime={selectedProject.start_date}>
 								{new Date(selectedProject.start_date)
 									.toLocaleDateString(selectedProject.translations[0].languages_code, {

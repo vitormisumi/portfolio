@@ -34,39 +34,29 @@
 			class="relative flex aspect-[1.5] w-full max-w-xs flex-col justify-end gap-2 md:max-w-sm lg:max-w-md landscape:max-w-xs landscape:lg:max-w-sm">
 			<div class="relative flex h-full flex-col items-center justify-end">
 				<div class="relative w-full" in:fly={{ y: 500, duration: duration }}>
-					<p class="w-full text-xs text-primary lg:text-base">
+					<p class="text-dark dark:text-light w-full text-xs lg:text-base">
 						{data.home.translations[0].welcome_message}
 					</p>
-					<h1>
-						<svg viewBox="0 0 300 35" class="absolute -z-10 w-full uppercase">
+					<h1
+						class="text-dark stroke-dark dark:fill-light dark:stroke-light stroke-1 font-roboto text-5xl font-bold uppercase">
+						<svg viewBox="0 0 300 37" class="absolute -z-10 w-full">
 							<text
 								x="0"
-								y="48%"
+								y="45%"
 								textLength="300"
 								lengthAdjust="spacingAndGlyphs"
-								dominant-baseline="central"
-								font-size="42"
-								font-family="Roboto Mono"
-								font-weight="bold"
-								fill="#FFFCF2"
-								stroke="#FFFCF2"
-								stroke-width="1">
+								dominant-baseline="central">
 								{data.home.name}
 							</text>
 						</svg>
-						<svg viewBox="0 0 300 35" class="w-full uppercase">
+						<svg viewBox="0 0 300 37" class="w-full">
 							<text
 								x="0"
-								y="48%"
+								y="45%"
 								textLength="300"
 								lengthAdjust="spacingAndGlyphs"
 								dominant-baseline="central"
-								font-size="42"
-								font-family="Roboto Mono"
-								font-weight="bold"
-								fill="none"
-								stroke="#FFFCF2"
-								stroke-width="1">
+								fill="none">
 								{data.home.name}
 							</text>
 						</svg>
@@ -80,10 +70,10 @@
 					in:fly={{ x: 500, duration: duration, delay: profileImageDelay }} />
 			</div>
 			<div
-				class="flex w-full justify-between items-center"
+				class="flex w-full items-center justify-between"
 				in:fade={{ duration: duration, delay: textDelay }}>
 				<h2
-					class="whitespace-nowrap font-mono text-xs font-extralight text-secondary md:text-sm lg:text-base">
+					class="whitespace-nowrap font-mono text-xs font-extralight text-secondary md:text-sm lg:text-base dark:text-secondary">
 					{data.home.translations[0].subtitle}
 				</h2>
 				<div class="flex gap-2 text-xl text-secondary lg:text-2xl">

@@ -26,7 +26,7 @@
 
 <div aria-roledescription="carousel" role="region" class="grid w-full">
 	<figure
-		class="relative flex items-center justify-between overflow-hidden border-[#000] shadow-sm shadow-primary drop-shadow-xl {project.images_frame ===
+		class="shadow-dark relative flex items-center justify-between overflow-hidden border-secondary shadow-sm drop-shadow-xl {project.images_frame ===
 		'mobile'
 			? 'aspect-[0.46] h-[50vh] justify-self-center rounded-2xl border-4 landscape:h-[60vh] landscape:md:h-[50vh]'
 			: 'aspect-[1.6] rounded-lg border-8 landscape:w-[25vw] landscape:lg:w-[30vw]'}">
@@ -45,13 +45,13 @@
 				out:fly={{ x: scrollDirection === 'forward' ? 500 : -500 }} />
 		{/key}
 		<button
-			class="flex size-8 items-center justify-center rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-10"
+			class="bg-dark/25 hover:bg-dark flex size-8 items-center justify-center rounded-full transition-colors disabled:opacity-10"
 			disabled={selectedImageIndex === 0}
 			onclick={() => previousImage(selectedImageIndex)}>
 			<iconify-icon icon="ep:arrow-left"></iconify-icon>
 		</button>
 		<button
-			class="flex size-8 items-center justify-center rounded-full bg-primary/25 transition-colors hover:bg-primary disabled:opacity-10"
+			class="bg-dark/25 hover:bg-dark flex size-8 items-center justify-center rounded-full transition-colors disabled:opacity-10"
 			disabled={selectedImageIndex === project.images.length - 1}
 			onclick={() => nextImage(selectedImageIndex)}>
 			<iconify-icon icon="ep:arrow-right"></iconify-icon>

@@ -3,9 +3,9 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		colors: {
-			background: '#0A100D',
+			dark: '#0A100D',
 			accent: '#F74C03',
-			primary: '#FAFAFF',
+			light: '#FAFAFF',
 			secondary: '#9F9D9D',
 			transparent: '#00000000'
 		},
@@ -24,6 +24,7 @@ export default {
 				}
 			}
 		}
-	},
+    },
+    darkMode: 'class',
 	plugins: []
 };
