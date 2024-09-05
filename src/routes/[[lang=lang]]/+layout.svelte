@@ -107,7 +107,7 @@
 			{/if}
 		</header>
 		<img
-			src="https://directus.vitormisumi.com/assets/{data.home.bg_image.id}"
+			src="https://directus.vitormisumi.com/assets/{data.home.bg_image.id}?width=600&format=auto"
 			alt={$page.params.lang === 'pt' ? 'Linhas de código' : 'Code lines'}
 			class="absolute left-0 top-12 -z-20 rounded-none opacity-5 lg:left-12 lg:h-4/5 {showMenu
 				? 'hidden'
