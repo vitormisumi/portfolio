@@ -1,3 +1,3 @@
 <section>
-    <p>Oops, um erro acontenceu.</p>
+    <p>Oops, um erro aconteceu.</p>
 </section>
