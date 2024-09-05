@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { fade, fly, slide } from 'svelte/transition';
-	import ThemeSwitch from './ThemeSwitch.svelte';
 
 	let { children, data } = $props();
 
@@ -33,6 +33,31 @@
 
 	let innerWidth = $state(0);
 	let innerHeight = $state(0);
+
+	let darkMode = $state(false);
+
+	function toggleTheme() {
+		darkMode = !darkMode;
+
+		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+
+		darkMode
+			? document.documentElement.classList.add('dark')
+			: document.documentElement.classList.remove('dark');
+	}
+
+	if (browser) {
+		if (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			document.documentElement.classList.add('dark');
+			darkMode = true;
+		} else {
+			document.documentElement.classList.remove('dark');
+			darkMode = false;
+		}
+	}
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -88,8 +113,14 @@
 							class={route === 'contact' ? 'underline underline-offset-4' : ''}
 							onclick={() => (showMenu = false)}>{lang === 'pt' ? 'Contato' : 'Contact'}</a>
 					</div>
-					<div class="flex flex-col landscape:flex-row gap-4 landscape:gap-8">
-						<ThemeSwitch />
+					<div class="flex flex-col gap-4 landscape:flex-row landscape:gap-8">
+						<button
+							class="hover:text-light hover:dark:text-dark flex aspect-square size-8 rounded p-2 hover:bg-secondary"
+							aria-label={darkMode ? 'dark mode' : 'light mode'}
+							onclick={toggleTheme}>
+							<iconify-icon icon={darkMode ? 'ic:round-dark-mode' : 'ic:round-light-mode'}
+							></iconify-icon>
+						</button>
 						<div
 							class="grid grid-cols-2 place-items-center divide-x divide-secondary text-secondary">
 							<a
@@ -119,16 +150,17 @@
 				: ''}"
 			in:fade={{ delay: 4500 }} />
 		<img
-			src="https://directus.vitormisumi.com/assets/{data.home.dark_bg_image.id}?width=600&format=auto"
+			src="https://directus.vitormisumi.com/assets/{data.home.dark_bg_image
+				.id}?width=600&format=auto"
 			alt={$page.params.lang === 'pt' ? 'Linhas de código' : 'Code lines'}
-			class="absolute left-0 top-16 -z-20 rounded-none opacity-10 lg:left-12 lg:h-4/5 hidden dark:block {showMenu
+			class="absolute left-0 top-16 -z-20 hidden rounded-none opacity-10 lg:left-12 lg:h-4/5 dark:block {showMenu
 				? 'hidden'
 				: ''}"
 			in:fade={{ delay: 4500 }} />
 		{#key data.url}
 			<main
-				class="h-full overflow-hidden p-6 opacity-100 md:p-8 landscape:lg:p-24 landscape:xl:px-32 {showMenu
-					? 'pointer-events-none opacity-5 transition-colors'
+				class="h-full overflow-hidden p-6 opacity-100 transition-opacity md:p-8 landscape:lg:p-24 landscape:xl:px-32 {showMenu
+					? 'pointer-events-none opacity-5'
 					: ''}"
 				in:fade>
 				{@render children()}
