@@ -86,7 +86,7 @@
 					class="whitespace-nowrap font-mono text-xs font-extralight text-secondary md:text-sm lg:text-base">
 					{data.home.translations[0].subtitle}
 				</h2>
-				<div class="flex gap-2 text-lg text-secondary lg:text-2xl">
+				<div class="flex gap-2 text-xl text-secondary lg:text-2xl">
 					<a href="https://github.com/vitormisumi" aria-label="GitHub">
 						<iconify-icon icon="mdi:github"></iconify-icon>
 					</a>
