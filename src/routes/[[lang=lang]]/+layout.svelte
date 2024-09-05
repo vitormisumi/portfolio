@@ -143,19 +143,11 @@
 			{/if}
 		</header>
 		<img
-			src="https://directus.vitormisumi.com/assets/{data.home.bg_image.id}?width=600&format=auto"
+			src="https://directus.vitormisumi.com/assets/{darkMode
+				? data.home.dark_bg_image.id
+				: data.home.bg_image.id}?width=600&format=auto"
 			alt={$page.params.lang === 'pt' ? 'Linhas de código' : 'Code lines'}
-			class="absolute left-0 top-16 -z-20 rounded-none opacity-10 lg:left-12 lg:h-4/5 dark:hidden {showMenu
-				? 'hidden'
-				: ''}"
-			in:fade={{ delay: 4500 }} />
-		<img
-			src="https://directus.vitormisumi.com/assets/{data.home.dark_bg_image
-				.id}?width=600&format=auto"
-			alt={$page.params.lang === 'pt' ? 'Linhas de código' : 'Code lines'}
-			class="absolute left-0 top-16 -z-20 hidden rounded-none opacity-10 lg:left-12 lg:h-4/5 dark:block {showMenu
-				? 'hidden'
-				: ''}"
+			class="absolute left-0 top-16 -z-20 opacity-10 lg:left-12 lg:h-4/5 {showMenu ? 'hidden' : ''}"
 			in:fade={{ delay: 4500 }} />
 		{#key data.url}
 			<main
