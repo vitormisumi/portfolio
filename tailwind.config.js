@@ -6,8 +6,8 @@ export default {
 			background: '#0A100D',
 			accent: '#F74C03',
 			primary: '#FAFAFF',
-            secondary: '#817F82',
-            transparent: '#00000000'
+			secondary: '#9F9D9D',
+			transparent: '#00000000'
 		},
 		extend: {
 			fontFamily: {

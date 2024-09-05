@@ -40,7 +40,7 @@
 		<figcaption class="font-roboto text-primary">
 			{selectedProject.translations[0].title}
 		</figcaption>
-		<div class="w-full overflow-hidden rounded-lg">
+		<div class="w-full overflow-hidden rounded-lg" role="tabpanel" aria-labelledby={String(selectedProject.id)}>
 			{#key selectedProject}
 				<img
 					src="https://directus.vitormisumi.com/assets/{selectedProject.home_image
@@ -49,9 +49,7 @@
 						? `Screenshot do projeto ${selectedProject.translations[0].title}`
 						: `Screenshot of project ${selectedProject.translations[0].title}`}
 					onload={() => (imageLoaded = true)}
-					role="group"
 					aria-roledescription="slide"
-					aria-labelledby={String(selectedProject.id)}
 					in:blur />
 			{/key}
 			{#if !imageLoaded}
@@ -59,7 +57,7 @@
 			{/if}
 		</div>
 	</figure>
-	<div class="absolute flex w-full justify-center gap-2 py-2">
+	<div class="absolute flex w-full justify-center gap-2 py-2" role="tablist">
 		{#each data.home.projects as project, i}
 			<button
 				class="rounded-full bg-secondary transition-all hover:bg-accent disabled:bg-primary {project.id ===
@@ -67,6 +65,7 @@
 					? 'h-2 w-5'
 					: 'size-2'}"
 				disabled={project.id === selectedProject.id}
+                aria-selected={project.id === selectedProject.id}
 				aria-controls={String(selectedProject.id)}
 				aria-label={project.translations[0].title}
 				role="tab"

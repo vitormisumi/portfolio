@@ -80,17 +80,17 @@
 					in:fly={{ x: 500, duration: duration, delay: profileImageDelay }} />
 			</div>
 			<h2
-				class="font-mono text-xs font-extralight tracking-tight text-secondary md:text-base lg:text-xl xl:tracking-wide landscape:text-xs landscape:lg:text-sm landscape:xl:text-base"
+				class="text-center font-mono text-xs font-extralight tracking-tight text-secondary md:text-base lg:text-xl xl:tracking-wide landscape:text-xs landscape:lg:text-sm landscape:xl:text-base"
 				in:fade={{ duration: duration, delay: textDelay }}>
 				{data.home.translations[0].subtitle}
 			</h2>
 			<div
 				class="flex w-full justify-center gap-2 text-lg text-secondary lg:text-2xl landscape:justify-start"
 				in:fade={{ duration: duration, delay: textDelay }}>
-				<a href="https://github.com/vitormisumi">
+				<a href="https://github.com/vitormisumi" aria-label="GitHub">
 					<iconify-icon icon="mdi:github"></iconify-icon>
 				</a>
-				<a href="https://www.linkedin.com/in/vitormisumi">
+				<a href="https://www.linkedin.com/in/vitormisumi" aria-label="LinkedIn">
 					<iconify-icon icon="mdi:linkedin"></iconify-icon>
 				</a>
 			</div>

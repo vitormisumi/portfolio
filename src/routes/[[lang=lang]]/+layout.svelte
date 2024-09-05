@@ -35,6 +35,14 @@
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
+<svelte:head>
+	<title>Vitor Misumi</title>
+	<meta
+		name="description"
+		content={lang === 'pt'
+			? 'Portfólio do desenvolvedor web Vitor Misumi'
+			: 'Portfolio of the web developer Vitor Misumi'} />
+</svelte:head>
 <div class="flex h-dvh flex-col justify-between overflow-hidden">
 	{#if pageLoaded}
 		<header
@@ -124,7 +132,7 @@
 				<ul class="inline-block w-max animate-infinite-scroll text-lg text-secondary">
 					{#each data.technologies as technology}
 						<li class="mx-8 inline h-16 md:mx-16 lg:mx-20">
-							<i class="devicon-{technology.name}-plain"></i>
+							<iconify-icon icon="simple-icons:{technology.name}"></iconify-icon>
 						</li>
 					{/each}
 				</ul>
@@ -133,7 +141,7 @@
 					aria-hidden="true">
 					{#each data.technologies as technology}
 						<li class="mx-8 inline h-16 md:mx-16 lg:mx-20">
-							<i class="devicon-{technology.name}-plain"></i>
+							<iconify-icon icon="simple-icons:{technology.name}"></iconify-icon>
 						</li>
 					{/each}
 				</ul>
