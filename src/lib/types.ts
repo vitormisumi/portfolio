@@ -63,5 +63,6 @@ export interface Project {
 	translations: ProjectTranslation[];
 	images: Image[];
 	images_frame: 'mobile' | 'desktop';
-	home_image: { id: string };
+    home_image: { id: string };
+    link: 'string';
 }

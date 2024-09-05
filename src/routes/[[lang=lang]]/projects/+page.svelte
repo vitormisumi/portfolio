@@ -37,7 +37,8 @@
 				in:fade>
 				<div class="grid w-full gap-4">
 					<div>
-						<h2>{selectedProject.translations[0].title}</h2>
+						<a href={selectedProject.link} class="font-roboto text-lg font-medium text-primary"
+							>{selectedProject.translations[0].title}</a>
 						<h3 class="font-mono text-xs font-thin capitalize text-secondary">
 							<time datetime={selectedProject.start_date}>
 								{new Date(selectedProject.start_date)
