@@ -39,7 +39,7 @@
 					<div>
 						<a href={selectedProject.link} class="font-roboto text-lg font-medium text-primary"
 							>{selectedProject.translations[0].title}</a>
-						<h3 class="font-mono text-xs font-thin capitalize text-secondary">
+						<h3 class="font-mono text-xs font-extralight capitalize text-secondary">
 							<time datetime={selectedProject.start_date}>
 								{new Date(selectedProject.start_date)
 									.toLocaleDateString(selectedProject.translations[0].languages_code, {
