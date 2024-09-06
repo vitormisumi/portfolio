@@ -71,10 +71,10 @@
 			? 'Portfólio do desenvolvedor web Vitor Misumi'
 			: 'Portfolio of the web developer Vitor Misumi'} />
 </svelte:head>
-<div class="flex h-dvh flex-col justify-between overflow-hidden relative">
+<div class="relative flex h-dvh flex-col justify-between overflow-hidden">
 	{#if pageLoaded}
 		<header
-			class="bg-gradient-to-b from-dark/10 to-transparent px-6 py-4 landscape:py-2 dark:from-light/5 landscape:lg:px-12 landscape:lg:py-8"
+			class="bg-gradient-to-b from-dark/10 to-transparent px-6 py-4 dark:from-light/5 landscape:py-2 landscape:lg:px-12 landscape:lg:py-8"
 			in:fly={{ y: -100, delay: 4500, duration: route ? 0 : 1000 }}>
 			<button
 				class="text-secondary landscape:hidden"
