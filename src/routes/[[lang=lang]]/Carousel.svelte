@@ -35,9 +35,9 @@
 	role="region"
 	in:fade={{ delay: projectsDelay }}>
 	<figure
-		class="bg-dark/5 dark:bg-light/5 grid aspect-[1.5] w-full max-w-xs gap-2 rounded-lg border border-secondary p-4 pt-2 shadow-2xl shadow-secondary/20 md:max-w-sm lg:max-w-md landscape:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md"
+		class="grid aspect-[1.5] w-full max-w-xs gap-2 rounded-lg border border-secondary bg-dark/5 p-2 shadow-2xl shadow-secondary/20 dark:bg-light/5 md:max-w-sm md:p-4 md:pt-2 lg:max-w-md landscape:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md"
 		id={String(selectedProject.id)}>
-		<figcaption class="text-dark dark:text-light font-roboto">
+		<figcaption class="font-roboto text-sm text-dark dark:text-light md:text-base">
 			{selectedProject.translations[0].title}
 		</figcaption>
 		<div
@@ -63,7 +63,7 @@
 	<div class="absolute flex w-full justify-center gap-2 py-2" role="tablist">
 		{#each data.home.projects as project, i}
 			<button
-				class="disabled:bg-dark disabled:dark:bg-light rounded-full bg-secondary transition-all hover:bg-accent {project.id ===
+				class="rounded-full bg-secondary transition-all hover:bg-accent disabled:bg-dark disabled:dark:bg-light {project.id ===
 				selectedProject.id
 					? 'h-2 w-5'
 					: 'size-2'}"
