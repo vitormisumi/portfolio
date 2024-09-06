@@ -71,7 +71,7 @@
 			? 'Portfólio do desenvolvedor web Vitor Misumi'
 			: 'Portfolio of the web developer Vitor Misumi'} />
 </svelte:head>
-<div class="flex h-dvh flex-col justify-between overflow-hidden">
+<div class="flex h-dvh flex-col justify-between overflow-hidden relative">
 	{#if pageLoaded}
 		<header
 			class="bg-gradient-to-b from-dark/10 to-transparent px-6 py-4 dark:from-light/5 lg:px-12 lg:py-8"
