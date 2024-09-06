@@ -162,8 +162,8 @@
 		{/key}
 		<footer
 			class="flex items-center overflow-hidden whitespace-nowrap border-t border-secondary"
-			in:fly={{ y: 100, delay: 0, duration: route ? 0 : 1000 }}>
-			<div class="relative flex w-screen items-center py-2 md:py-4 lg:py-6">
+			in:fly={{ y: 100, delay: 4500, duration: route ? 0 : 1000 }}>
+			<div class="relative flex w-screen items-center py-3 md:py-4 lg:py-6">
 				<div
 					class="absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-light via-light via-25% to-transparent transition-colors dark:from-dark dark:via-dark">
 				</div>
