@@ -74,7 +74,7 @@
 <div class="flex h-dvh flex-col justify-between overflow-hidden">
 	{#if pageLoaded}
 		<header
-			class="from-dark/10 dark:from-light/5 bg-gradient-to-b to-transparent px-6 py-4 lg:px-12 lg:py-8"
+			class="bg-gradient-to-b from-dark/10 to-transparent px-6 py-4 dark:from-light/5 lg:px-12 lg:py-8"
 			in:fly={{ y: -100, delay: 4500, duration: route ? 0 : 1000 }}>
 			<button
 				class="text-secondary landscape:hidden"
@@ -117,7 +117,7 @@
 					</div>
 					<div class="flex flex-col gap-4 landscape:flex-row landscape:gap-8">
 						<button
-							class="hover:text-light hover:dark:text-dark flex aspect-square size-8 rounded p-2 hover:bg-secondary"
+							class="flex aspect-square size-8 rounded p-2 hover:bg-secondary hover:text-light hover:dark:text-dark"
 							aria-label={darkMode ? 'dark mode' : 'light mode'}
 							onclick={toggleTheme}>
 							<iconify-icon icon={darkMode ? 'ic:round-dark-mode' : 'ic:round-light-mode'}
@@ -163,13 +163,13 @@
 		<footer
 			class="flex items-center overflow-hidden whitespace-nowrap border-t border-secondary"
 			in:fly={{ y: 100, delay: 0, duration: route ? 0 : 1000 }}>
-			<div class="relative w-screen py-2 md:py-4">
+			<div class="relative flex w-screen items-center py-2 md:py-4 lg:py-6">
 				<div
-					class="from-light via-light dark:from-dark dark:via-dark absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r via-25% to-transparent transition-colors">
+					class="absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-light via-light via-25% to-transparent transition-colors dark:from-dark dark:via-dark">
 				</div>
-				<ul class="inline-block w-max animate-infinite-scroll text-secondary">
+				<ul class="inline-flex w-max animate-infinite-scroll text-secondary">
 					{#each data.technologies as technology}
-						<li class="mx-8 inline align-middle md:mx-16 lg:mx-20">
+						<li class="mx-8 inline-flex md:mx-16 lg:mx-20">
 							<iconify-icon
 								icon="simple-icons:{technology.name}"
 								class="inline-block size-4"
@@ -177,9 +177,9 @@
 						</li>
 					{/each}
 				</ul>
-				<ul class="inline-block w-max animate-infinite-scroll text-secondary" aria-hidden="true">
+				<ul class="inline-flex w-max animate-infinite-scroll text-secondary" aria-hidden="true">
 					{#each data.technologies as technology}
-						<li class="mx-8 inline align-middle md:mx-16 lg:mx-20">
+						<li class="mx-8 inline-flex md:mx-16 lg:mx-20">
 							<iconify-icon
 								icon="simple-icons:{technology.name}"
 								class="inline-block size-4"
@@ -188,7 +188,7 @@
 					{/each}
 				</ul>
 				<div
-					class="from-light dark:from-dark dark:via-dark via-light absolute right-0 top-0 z-50 h-full w-1/12 bg-gradient-to-l via-25% to-transparent transition-colors">
+					class="absolute right-0 top-0 z-50 h-full w-1/12 bg-gradient-to-l from-light via-light via-25% to-transparent transition-colors dark:from-dark dark:via-dark">
 				</div>
 			</div>
 		</footer>
