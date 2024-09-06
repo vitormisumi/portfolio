@@ -59,7 +59,6 @@
 					type="text"
 					name="name"
 					placeholder={$page.params.lang === 'pt' ? 'Digite seu nome' : 'Type your name'}
-					class="placeholder:text-sm"
 					required />
 			</label>
 			<label class="grid w-full">
@@ -68,7 +67,6 @@
 					type="email"
 					name="email"
 					placeholder={$page.params.lang === 'pt' ? 'Digite seu email' : 'Type your email'}
-					class="placeholder:text-sm"
 					required />
 			</label>
 			<label class="grid w-full">
@@ -76,14 +74,13 @@
 				<textarea
 					name="message"
 					placeholder={$page.params.lang === 'pt' ? 'Digite sua mensagem' : 'Type your message'}
-					class="placeholder:text-sm"
 					required
 					rows="5"></textarea>
 			</label>
 			<input type="hidden" name="redirect" value="https://vitormisumi.com/thanks" />
 			<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 			<button
-				class="text-light hover:text-light bg-dark hover:bg-dark/90 dark:bg-light dark:text-dark dark:hover:bg-light/90 rounded px-4 py-2 font-medium">
+				class="rounded bg-dark px-4 py-2 font-medium text-light hover:bg-dark/90 hover:text-light dark:bg-light dark:text-dark dark:hover:bg-light/90">
 				{$page.params.lang === 'pt' ? 'Enviar' : 'Send'}
 			</button>
 		</form>
