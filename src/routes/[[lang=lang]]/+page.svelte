@@ -31,14 +31,14 @@
 {#if pageLoaded}
 	<div class="flex h-full w-full flex-col items-center justify-around landscape:flex-row">
 		<div
-			class="relative flex aspect-[1.5] w-full max-w-xs flex-col justify-end gap-2 md:max-w-sm lg:max-w-md landscape:max-w-xs landscape:lg:max-w-sm">
+			class="relative flex aspect-[1.5] w-full max-w-xs flex-col justify-end gap-2 md:max-w-sm lg:max-w-md landscape:max-w-64 landscape:md:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md">
 			<div class="relative flex h-full flex-col items-center justify-end">
 				<div class="relative w-full" in:fly={{ y: 500, duration: duration }}>
-					<p class="text-dark dark:text-light w-full text-xs lg:text-base">
+					<p class="w-full text-xs text-dark dark:text-light lg:text-base">
 						{data.home.translations[0].welcome_message}
 					</p>
 					<h1
-						class="text-dark stroke-dark dark:fill-light dark:stroke-light stroke-1 font-roboto text-5xl font-bold uppercase">
+						class="stroke-dark stroke-1 font-roboto text-5xl font-bold uppercase text-dark dark:fill-light dark:stroke-light">
 						<svg viewBox="0 0 300 37" class="absolute -z-10 w-full">
 							<text
 								x="0"
@@ -73,7 +73,7 @@
 				class="flex w-full items-center justify-between"
 				in:fade={{ duration: duration, delay: textDelay }}>
 				<h2
-					class="whitespace-nowrap font-mono text-xs font-extralight text-secondary md:text-sm lg:text-base dark:text-secondary">
+					class="whitespace-nowrap font-mono text-xs font-extralight text-secondary dark:text-secondary md:text-sm lg:text-base">
 					{data.home.translations[0].subtitle}
 				</h2>
 				<div class="flex gap-2 text-xl text-secondary lg:text-2xl">
