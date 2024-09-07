@@ -35,7 +35,7 @@
 	role="region"
 	in:fade={{ delay: projectsDelay }}>
 	<figure
-		class="grid w-full max-w-xs gap-2 rounded-lg border border-secondary bg-dark/5 p-2 shadow-2xl shadow-secondary/20 dark:bg-light/5 md:max-w-sm md:p-4 md:pt-2 lg:max-w-md landscape:max-w-64 landscape:md:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md"
+		class="grid w-full max-w-xs aspect-[1.42] gap-2 rounded-lg border border-secondary bg-dark/5 p-2 shadow-2xl shadow-secondary/20 dark:bg-light/5 md:max-w-sm md:p-4 md:pt-2 lg:max-w-md landscape:max-w-64 landscape:md:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md"
 		id={String(selectedProject.id)}>
 		<figcaption class="font-roboto text-sm text-dark dark:text-light md:text-base">
 			{selectedProject.translations[0].title}

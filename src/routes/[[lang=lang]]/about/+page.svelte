@@ -16,6 +16,7 @@
 			} else {
 				currentImageIndex += 1;
 			}
+			// imageLoaded = false;
 		}, 5000);
 	}
 
@@ -23,7 +24,7 @@
 		imageSlideshow();
 	});
 
-	let imageLoaded = $state(false);
+	// let imageLoaded = $state(false);
 </script>
 
 <section
@@ -54,7 +55,7 @@
 					<div class="relative">
 						<div>
 							<div
-								class="to-light dark:to-dark pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b from-transparent">
+								class="pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b from-transparent to-light dark:to-dark">
 							</div>
 							<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 							<div
@@ -71,20 +72,17 @@
 					</div>
 				</div>
 				{#if selectedSection.images.length}
-					<figure class="grid">
+					<figure class="grid rounded-lg border border-secondary p-2 shadow-2xl shadow-secondary/20 md:p-4 landscape:p-2">
+                        <div class="w-full h-full"></div>
 						{#key currentImageIndex}
 							<img
 								src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
 								alt={$page.params.lang === 'pt'
 									? 'Vitor trabalhando com futebol'
 									: 'Vitor working with football'}
-								class="col-start-1 row-start-1 rounded-lg border border-secondary p-2 shadow-2xl shadow-secondary/20 md:p-4 landscape:p-2"
-								onload={() => (imageLoaded = true)}
+								class="col-start-1 w-full row-start-1 rounded"
 								transition:fade={{ duration: 1000 }} />
 						{/key}
-						{#if !imageLoaded}
-							<div class="w-[512px]" aria-hidden="true"></div>
-						{/if}
 					</figure>
 				{/if}
 			</article>
