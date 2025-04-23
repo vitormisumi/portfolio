@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
@@ -65,7 +65,7 @@
 									: 'max-h-[65vh]'}"
 								tabindex="0"
 								role="region"
-								aria-label={$page.params.lang === 'pt' ? 'Texto rolável' : 'Scrollable text'}>
+								aria-label={page.params.lang === 'pt' ? 'Texto rolável' : 'Scrollable text'}>
 								{@html selectedSection.translations[0].section_text}
 							</div>
 						</div>
@@ -77,7 +77,7 @@
 						{#key currentImageIndex}
 							<img
 								src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
-								alt={$page.params.lang === 'pt'
+								alt={page.params.lang === 'pt'
 									? 'Vitor trabalhando com futebol'
 									: 'Vitor working with football'}
 								class="col-start-1 w-full row-start-1 rounded"

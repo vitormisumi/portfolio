@@ -1,5 +1,6 @@
+<!-- @migration task: review uses of `navigating` -->
 <script lang="ts">
-	import { navigating } from '$app/stores';
+	import { navigating } from '$app/state';
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import Carousel from './Carousel.svelte';
@@ -13,7 +14,7 @@
 	let projectsDelay = $state(0);
 
 	onMount(() => {
-		if ($navigating) {
+		if (navigating) {
 			duration = 0;
 			profileImageDelay = 0;
 			textDelay = 0;
