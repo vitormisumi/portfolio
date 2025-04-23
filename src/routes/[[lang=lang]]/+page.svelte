@@ -14,7 +14,7 @@
 	let projectsDelay = $state(0);
 
 	onMount(() => {
-		if (navigating) {
+		if (navigating.from) {
 			duration = 0;
 			profileImageDelay = 0;
 			textDelay = 0;
