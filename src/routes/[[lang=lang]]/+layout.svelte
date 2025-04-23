@@ -1,20 +1,20 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { fade, fly, slide } from 'svelte/transition';
 
 	let { children, data } = $props();
 
-	let lang: string = $derived($page.url.pathname.startsWith('/en') ? 'en' : 'pt');
+	let lang: string = $derived(page.url.pathname.startsWith('/en') ? 'en' : 'pt');
 
 	$effect(() => {
 		document.documentElement.lang = lang;
 	});
 
 	let route = $derived.by(() => {
-		if ($page.url.pathname.split('/').length > 2) {
-			return $page.url.pathname.split('/')[2];
+		if (page.url.pathname.split('/').length > 2) {
+			return page.url.pathname.split('/')[2];
 		}
 		return '';
 	});
@@ -78,7 +78,7 @@
 			in:fly={{ y: -100, delay: 4500, duration: route ? 0 : 1000 }}>
 			<button
 				class="text-secondary landscape:hidden"
-				aria-label={$page.params.lang === 'pt' ? 'Menu de navegação' : 'Navigation menu'}
+				aria-label={page.params.lang === 'pt' ? 'Menu de navegação' : 'Navigation menu'}
 				aria-expanded={showMenu || innerWidth > innerHeight ? 'true' : 'false'}
 				aria-hidden={innerWidth > innerHeight ? 'true' : 'false'}
 				aria-controls="primaryNav"
@@ -129,14 +129,14 @@
 								href="/pt/{route}"
 								lang="pt"
 								aria-label="Mudar para Português"
-								aria-current={$page.params.lang === 'pt' ? 'true' : 'false'}
+								aria-current={page.params.lang === 'pt' ? 'true' : 'false'}
 								class="pr-2"
 								onclick={() => (showMenu = false)}>PT</a>
 							<a
 								href="/en/{route}"
 								lang="en"
 								aria-label="Change to English"
-								aria-current={$page.params.lang === 'en' ? 'true' : 'false'}
+								aria-current={page.params.lang === 'en' ? 'true' : 'false'}
 								class="pl-2"
 								onclick={() => (showMenu = false)}>EN</a>
 						</div>
@@ -148,7 +148,7 @@
 			src="https://directus.vitormisumi.com/assets/{darkMode
 				? data.home.dark_bg_image.id
 				: data.home.bg_image.id}?width=600&format=auto"
-			alt={$page.params.lang === 'pt' ? 'Linhas de código' : 'Code lines'}
+			alt={page.params.lang === 'pt' ? 'Linhas de código' : 'Code lines'}
 			class="absolute left-0 top-16 -z-20 opacity-10 lg:left-12 lg:h-4/5 {showMenu ? 'hidden' : ''}"
 			in:fade={{ delay: 4500 }} />
 		{#key data.url}

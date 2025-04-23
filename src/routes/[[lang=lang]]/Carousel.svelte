@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { blur, fade } from 'svelte/transition';
 	import type { PageData } from './$types';
@@ -48,7 +48,7 @@
 				<img
 					src="https://directus.vitormisumi.com/assets/{selectedProject.home_image
 						.id}?width=750&format=auto"
-					alt={$page.params.lang === 'pt'
+					alt={page.params.lang === 'pt'
 						? `Screenshot do projeto ${selectedProject.translations[0].title}`
 						: `Screenshot of project ${selectedProject.translations[0].title}`}
 					onload={() => (imageLoaded = true)}

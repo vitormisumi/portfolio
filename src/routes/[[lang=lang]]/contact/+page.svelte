@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	let status = $state('');
 
 	async function onsubmit(event: SubmitEvent) {
 		event.preventDefault();
-		status = `${$page.params.lang === 'pt' ? 'Enviando...' : 'Sending...'}`;
+		status = `${page.params.lang === 'pt' ? 'Enviando...' : 'Sending...'}`;
 		const formData = new FormData(event.currentTarget as HTMLFormElement);
 		const object = Object.fromEntries(formData);
 		const json = JSON.stringify(object);
@@ -21,8 +21,8 @@
 		});
 		const result = await response.json();
 		if (result.success) {
-			status = `${$page.params.lang === 'pt' ? 'Enviado!' : 'Sent!'}`;
-			goto(`/${$page.params.lang}/thanks`);
+			status = `${page.params.lang === 'pt' ? 'Enviado!' : 'Sent!'}`;
+			goto(`/${page.params.lang}/thanks`);
 		}
 	}
 </script>
@@ -30,7 +30,7 @@
 <section class="flex w-full justify-center">
 	<div class="flex w-full max-w-lg flex-col gap-4">
 		<p>
-			{$page.params.lang === 'pt'
+			{page.params.lang === 'pt'
 				? 'Você pode me encontrar nesses perfis:'
 				: 'You can find me in these profiles:'}
 		</p>
@@ -45,7 +45,7 @@
 			</a>
 		</div>
 		<p>
-			{$page.params.lang === 'pt'
+			{page.params.lang === 'pt'
 				? 'Ou enviar uma mensagem diretamente através do formulário abaixo:'
 				: 'Or send me a direct message using the form below:'}
 		</p>
@@ -54,11 +54,11 @@
 				<input type="hidden" name="access_key" value="7636656c-4f9f-44f5-b099-851cd26215b4" />
 			</label>
 			<label class="grid w-full">
-				{$page.params.lang === 'pt' ? 'Nome' : 'Name'}
+				{page.params.lang === 'pt' ? 'Nome' : 'Name'}
 				<input
 					type="text"
 					name="name"
-					placeholder={$page.params.lang === 'pt' ? 'Digite seu nome' : 'Type your name'}
+					placeholder={page.params.lang === 'pt' ? 'Digite seu nome' : 'Type your name'}
 					required />
 			</label>
 			<label class="grid w-full">
@@ -66,14 +66,14 @@
 				<input
 					type="email"
 					name="email"
-					placeholder={$page.params.lang === 'pt' ? 'Digite seu email' : 'Type your email'}
+					placeholder={page.params.lang === 'pt' ? 'Digite seu email' : 'Type your email'}
 					required />
 			</label>
 			<label class="grid w-full">
-				{$page.params.lang === 'pt' ? 'Mensagem' : 'Message'}
+				{page.params.lang === 'pt' ? 'Mensagem' : 'Message'}
 				<textarea
 					name="message"
-					placeholder={$page.params.lang === 'pt' ? 'Digite sua mensagem' : 'Type your message'}
+					placeholder={page.params.lang === 'pt' ? 'Digite sua mensagem' : 'Type your message'}
 					required
 					rows="5"></textarea>
 			</label>
@@ -81,7 +81,7 @@
 			<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 			<button
 				class="rounded bg-dark px-4 py-2 font-medium text-light hover:bg-dark/90 hover:text-light dark:bg-light dark:text-dark dark:hover:bg-light/90">
-				{$page.params.lang === 'pt' ? 'Enviar' : 'Send'}
+				{page.params.lang === 'pt' ? 'Enviar' : 'Send'}
 			</button>
 		</form>
 		<p class="text-dark">{status}</p>
