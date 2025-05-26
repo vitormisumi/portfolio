@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import { page } from '$app/state';
+	import { mode, toggleMode } from 'mode-watcher';
 	import { onMount } from 'svelte';
 	import { fade, fly, slide } from 'svelte/transition';
 
@@ -33,33 +33,6 @@
 
 	let innerWidth = $state(0);
 	let innerHeight = $state(0);
-
-	let darkMode = $state(false);
-
-	function toggleTheme() {
-		darkMode = !darkMode;
-
-		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-
-		darkMode
-			? document.documentElement.classList.add('dark')
-			: document.documentElement.classList.remove('dark');
-
-		showMenu = false;
-	}
-
-	if (browser) {
-		if (
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-		) {
-			document.documentElement.classList.add('dark');
-			darkMode = true;
-		} else {
-			document.documentElement.classList.remove('dark');
-			darkMode = false;
-		}
-	}
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -118,9 +91,10 @@
 					<div class="flex flex-col gap-4 landscape:flex-row landscape:gap-8">
 						<button
 							class="flex aspect-square size-8 rounded p-2 hover:bg-secondary hover:text-light hover:dark:text-dark"
-							aria-label={darkMode ? 'dark mode' : 'light mode'}
-							onclick={toggleTheme}>
-							<iconify-icon icon={darkMode ? 'ic:round-dark-mode' : 'ic:round-light-mode'}
+							aria-label={mode.current === 'dark' ? 'dark mode' : 'light mode'}
+							onclick={toggleMode}>
+							<iconify-icon
+								icon={mode.current === 'dark' ? 'ic:round-dark-mode' : 'ic:round-light-mode'}
 							></iconify-icon>
 						</button>
 						<div
@@ -145,7 +119,7 @@
 			{/if}
 		</header>
 		<img
-			src="https://directus.vitormisumi.com/assets/{darkMode
+			src="https://directus.vitormisumi.com/assets/{mode.current === 'dark'
 				? data.home.dark_bg_image.id
 				: data.home.bg_image.id}?width=600&format=auto"
 			alt={page.params.lang === 'pt' ? 'Linhas de código' : 'Code lines'}
