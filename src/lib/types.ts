@@ -10,16 +10,16 @@ export interface Home {
 	id: number;
 	name: string;
 	profile_image: Image;
-    bg_image: Image;
-    dark_bg_image: Image;
+	bg_image: Image;
+	dark_bg_image: Image;
 	images: Image[];
 	projects: Project[];
 	translations: HomeTranslation[];
 }
 
 export interface Profile {
-    icon: string;
-    link: string;
+	icon: string;
+	link: string;
 }
 
 export interface Technology {
@@ -64,6 +64,6 @@ export interface Project {
 	translations: ProjectTranslation[];
 	images: Image[];
 	images_frame: 'mobile' | 'desktop';
-    home_image: { id: string };
-    link: 'string';
+	home_image: { id: string };
+	link: 'string';
 }

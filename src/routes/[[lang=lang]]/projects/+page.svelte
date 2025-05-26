@@ -39,7 +39,7 @@
 					<div>
 						<a
 							href={selectedProject.link}
-							class="text-dark dark:text-light font-roboto text-lg font-medium"
+							class="font-roboto text-lg font-medium text-dark dark:text-light"
 							>{selectedProject.translations[0].title}</a>
 						<h3
 							class="font-mono text-xs font-extralight capitalize text-secondary dark:text-secondary">
