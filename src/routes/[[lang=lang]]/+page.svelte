@@ -1,9 +1,9 @@
-<!-- @migration task: review uses of `navigating` -->
 <script lang="ts">
 	import { navigating } from '$app/state';
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import Carousel from './Carousel.svelte';
+	import { PUBLIC_URL } from '$env/static/public';
 
 	let { data } = $props();
 
@@ -14,7 +14,7 @@
 	let projectsDelay = $state(0);
 
 	onMount(() => {
-		if (navigating.from) {
+		if (navigating.from?.url.href.startsWith(PUBLIC_URL)) {
 			duration = 0;
 			profileImageDelay = 0;
 			textDelay = 0;
