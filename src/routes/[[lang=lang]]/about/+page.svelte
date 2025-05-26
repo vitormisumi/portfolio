@@ -72,15 +72,16 @@
 					</div>
 				</div>
 				{#if selectedSection.images.length}
-					<figure class="grid rounded-lg border border-secondary p-2 shadow-2xl shadow-secondary/20 md:p-4 landscape:p-2">
-                        <div class="w-full h-full"></div>
+					<figure
+						class="grid rounded-lg border border-secondary p-2 shadow-2xl shadow-secondary/20 md:p-4 landscape:p-2">
+						<div class="h-full w-full"></div>
 						{#key currentImageIndex}
 							<img
 								src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
 								alt={page.params.lang === 'pt'
 									? 'Vitor trabalhando com futebol'
 									: 'Vitor working with football'}
-								class="col-start-1 w-full row-start-1 rounded"
+								class="col-start-1 row-start-1 w-full rounded"
 								transition:fade={{ duration: 1000 }} />
 						{/key}
 					</figure>
