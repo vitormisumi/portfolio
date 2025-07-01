@@ -1,6 +1,47 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-*: initial;
+  --color-dark: #0a100d;
+  --color-accent: #f74c03;
+  --color-light: #fafaff;
+  --color-secondary: #9f9d9d;
+  --color-transparent: #00000000;
+
+  --font-mono: JetBrains Mono;
+  --font-roboto: Roboto Mono;
+
+  --animate-infinite-scroll: infinite-scroll 45s linear infinite;
+
+  @keyframes infinite-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 @layer base {
 	h1 {
@@ -27,6 +68,6 @@
 	}
 	input,
 	textarea {
-		@apply rounded bg-secondary/20 px-2 py-1 text-dark placeholder:text-sm placeholder:text-secondary/70 dark:text-light;
+		@apply rounded-sm bg-secondary/20 px-2 py-1 text-dark placeholder:text-sm placeholder:text-secondary/70 dark:text-light;
 	}
 }

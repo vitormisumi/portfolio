@@ -26,7 +26,7 @@
 
 <div aria-roledescription="carousel" role="region" class="grid w-full">
 	<figure
-		class="relative flex items-center justify-between overflow-hidden border-secondary shadow-sm shadow-dark drop-shadow-xl {project.images_frame ===
+		class="relative flex items-center justify-between overflow-hidden border-secondary shadow-xs shadow-dark drop-shadow-xl {project.images_frame ===
 		'mobile'
 			? 'aspect-[0.46] h-[50vh] justify-self-center rounded-2xl border-4 landscape:h-[60vh] landscape:md:h-[50vh]'
 			: 'aspect-[1.6] rounded-lg border-8 landscape:w-[25vw] landscape:lg:w-[30vw]'}">

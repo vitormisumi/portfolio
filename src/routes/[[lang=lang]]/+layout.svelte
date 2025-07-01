@@ -47,7 +47,7 @@
 <div class="relative flex h-dvh flex-col justify-between overflow-hidden">
 	{#if pageLoaded}
 		<header
-			class="bg-gradient-to-b from-dark/10 to-transparent px-6 py-4 dark:from-light/5 landscape:py-2 landscape:lg:px-12 landscape:lg:py-8"
+			class="bg-linear-to-b from-dark/10 to-transparent px-6 py-4 dark:from-light/5 landscape:py-2 landscape:lg:px-12 landscape:lg:py-8"
 			in:fly={{ y: -100, delay: 4500, duration: route ? 0 : 1000 }}>
 			<button
 				class="text-secondary landscape:hidden"
@@ -90,7 +90,7 @@
 					</div>
 					<div class="flex flex-col gap-4 landscape:flex-row landscape:gap-8">
 						<button
-							class="flex aspect-square size-8 rounded p-2 hover:bg-secondary hover:text-light hover:dark:text-dark"
+							class="flex aspect-square size-8 rounded-sm p-2 hover:bg-secondary hover:text-light dark:hover:text-dark"
 							aria-label={mode.current === 'dark' ? 'dark mode' : 'light mode'}
 							onclick={toggleMode}>
 							<iconify-icon
@@ -139,7 +139,7 @@
 			in:fly={{ y: 100, delay: 4500, duration: route ? 0 : 1000 }}>
 			<div class="relative flex w-screen items-center py-3 md:py-4 lg:py-6">
 				<div
-					class="absolute left-0 top-0 z-50 h-full w-1/12 bg-gradient-to-r from-light via-light via-25% to-transparent transition-colors dark:from-dark dark:via-dark">
+					class="absolute left-0 top-0 z-50 h-full w-1/12 bg-linear-to-r from-light via-light via-25% to-transparent transition-colors dark:from-dark dark:via-dark">
 				</div>
 				<ul class="inline-flex w-max animate-infinite-scroll text-secondary">
 					{#each data.technologies as technology}
@@ -162,7 +162,7 @@
 					{/each}
 				</ul>
 				<div
-					class="absolute right-0 top-0 z-50 h-full w-1/12 bg-gradient-to-l from-light via-light via-25% to-transparent transition-colors dark:from-dark dark:via-dark">
+					class="absolute right-0 top-0 z-50 h-full w-1/12 bg-linear-to-l from-light via-light via-25% to-transparent transition-colors dark:from-dark dark:via-dark">
 				</div>
 			</div>
 		</footer>

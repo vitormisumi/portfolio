@@ -55,7 +55,7 @@
 					<div class="relative">
 						<div>
 							<div
-								class="pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-gradient-to-b from-transparent to-light dark:to-dark">
+								class="pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-linear-to-b from-transparent to-light dark:to-dark">
 							</div>
 							<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 							<div
@@ -81,7 +81,7 @@
 								alt={page.params.lang === 'pt'
 									? 'Vitor trabalhando com futebol'
 									: 'Vitor working with football'}
-								class="col-start-1 row-start-1 w-full rounded"
+								class="col-start-1 row-start-1 w-full rounded-sm"
 								transition:fade={{ duration: 1000 }} />
 						{/key}
 					</figure>

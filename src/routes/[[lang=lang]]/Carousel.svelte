@@ -63,7 +63,7 @@
 	<div class="absolute flex w-full justify-center gap-2 py-2" role="tablist">
 		{#each data.home.projects as project, i}
 			<button
-				class="rounded-full bg-secondary transition-all hover:bg-accent disabled:bg-dark disabled:dark:bg-light {project.id ===
+				class="rounded-full bg-secondary transition-all hover:bg-accent disabled:bg-dark dark:disabled:bg-light {project.id ===
 				selectedProject.id
 					? 'h-2 w-5'
 					: 'size-2'}"
