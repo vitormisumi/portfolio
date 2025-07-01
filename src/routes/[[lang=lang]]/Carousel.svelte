@@ -9,15 +9,19 @@
 	let selectedProjectIndex = $state(0);
 	let selectedProject = $derived(data.home.projects[selectedProjectIndex]);
 	let interval: number;
+	let imageLoaded = $state(true); // Start as true to avoid initial flicker
+
+	$effect(() => {
+		selectedProject;
+		imageLoaded = false;
+	});
 
 	function imageSlideshow() {
 		interval = setInterval(() => {
 			if (selectedProjectIndex === data.home.projects.length - 1) {
 				selectedProjectIndex = 0;
-				imageLoaded = false;
 			} else {
 				selectedProjectIndex += 1;
-				imageLoaded = false;
 			}
 		}, 9000);
 	}
@@ -25,8 +29,6 @@
 	onMount(() => {
 		imageSlideshow();
 	});
-
-	let imageLoaded = $state(false);
 </script>
 
 <div
@@ -35,15 +37,20 @@
 	role="region"
 	in:fade={{ delay: projectsDelay }}>
 	<figure
-		class="grid aspect-[1.42] w-full max-w-xs gap-2 rounded-lg border border-secondary bg-dark/5 p-2 shadow-2xl shadow-secondary/20 dark:bg-light/5 md:max-w-sm md:p-4 md:pt-2 lg:max-w-md landscape:max-w-64 landscape:md:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md"
+		class="border-secondary bg-dark/5 shadow-secondary/20 dark:bg-light/5 grid aspect-[1.42] w-full max-w-xs gap-2 rounded-lg border p-2 shadow-2xl md:max-w-sm md:p-4 md:pt-2 lg:max-w-md landscape:max-w-64 landscape:md:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md"
 		id={String(selectedProject.id)}>
-		<figcaption class="font-roboto text-sm text-dark dark:text-light md:text-base">
+		<figcaption class="font-roboto text-dark dark:text-light text-sm md:text-base">
 			{selectedProject.translations[0].title}
 		</figcaption>
 		<div
-			class="w-full overflow-hidden rounded-lg"
+			class="relative w-full overflow-hidden rounded-lg"
 			role="tabpanel"
 			aria-labelledby={String(selectedProject.id)}>
+			<div
+				class="aspect-[1.42] w-full animate-pulse rounded-lg bg-gray-200 dark:bg-gray-700 {imageLoaded
+					? 'hidden'
+					: ''}">
+			</div>
 			{#key selectedProject}
 				<img
 					src="https://directus.vitormisumi.com/assets/{selectedProject.home_image
@@ -52,18 +59,17 @@
 						? `Screenshot do projeto ${selectedProject.translations[0].title}`
 						: `Screenshot of project ${selectedProject.translations[0].title}`}
 					onload={() => (imageLoaded = true)}
+					onerror={() => (imageLoaded = true)}
 					aria-roledescription="slide"
+					class="h-auto w-full {imageLoaded ? '' : 'invisible'}"
 					in:blur />
 			{/key}
-			{#if !imageLoaded}
-				<div class="w-[512px]"></div>
-			{/if}
 		</div>
 	</figure>
 	<div class="absolute flex w-full justify-center gap-2 py-2" role="tablist">
 		{#each data.home.projects as project, i}
 			<button
-				class="rounded-full bg-secondary transition-all hover:bg-accent disabled:bg-dark dark:disabled:bg-light {project.id ===
+				class="bg-secondary hover:bg-accent disabled:bg-dark dark:disabled:bg-light rounded-full transition-all {project.id ===
 				selectedProject.id
 					? 'h-2 w-5'
 					: 'size-2'}"
