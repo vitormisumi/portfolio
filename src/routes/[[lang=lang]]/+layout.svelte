@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Button from '$lib/components/ui/button/button.svelte';
 	import { mode, toggleMode } from 'mode-watcher';
 	import { onMount } from 'svelte';
 	import { fade, fly, slide } from 'svelte/transition';
@@ -47,10 +48,10 @@
 <div class="relative flex h-dvh flex-col justify-between overflow-hidden">
 	{#if pageLoaded}
 		<header
-			class="bg-linear-to-b from-dark/10 to-transparent px-6 py-4 dark:from-light/5 landscape:py-2 landscape:lg:px-12 landscape:lg:py-8"
+			class="from-dark/10 dark:from-light/5 bg-linear-to-b to-transparent px-6 py-4 landscape:py-2 landscape:lg:px-12 landscape:lg:py-8"
 			in:fly={{ y: -100, delay: 4500, duration: route ? 0 : 1000 }}>
 			<button
-				class="text-secondary landscape:hidden"
+				class="landscape:hidden"
 				aria-label={page.params.lang === 'pt' ? 'Menu de navegação' : 'Navigation menu'}
 				aria-expanded={showMenu || innerWidth > innerHeight ? 'true' : 'false'}
 				aria-hidden={innerWidth > innerHeight ? 'true' : 'false'}
@@ -89,16 +90,16 @@
 							onclick={() => (showMenu = false)}>{lang === 'pt' ? 'Contato' : 'Contact'}</a>
 					</div>
 					<div class="flex flex-col gap-4 landscape:flex-row landscape:gap-8">
-						<button
-							class="flex aspect-square size-8 rounded-sm p-2 hover:bg-secondary hover:text-light dark:hover:text-dark"
+						<Button
+							variant="ghost"
+							size="icon"
 							aria-label={mode.current === 'dark' ? 'dark mode' : 'light mode'}
 							onclick={toggleMode}>
 							<iconify-icon
 								icon={mode.current === 'dark' ? 'ic:round-dark-mode' : 'ic:round-light-mode'}
 							></iconify-icon>
-						</button>
-						<div
-							class="grid grid-cols-2 place-items-center divide-x divide-secondary text-secondary">
+						</Button>
+						<div class="divide-secondary-foreground grid grid-cols-2 place-items-center divide-x">
 							<a
 								href="/pt/{route}"
 								lang="pt"
@@ -123,7 +124,7 @@
 				? data.home.dark_bg_image.id
 				: data.home.bg_image.id}?width=600&format=auto"
 			alt={page.params.lang === 'pt' ? 'Linhas de código' : 'Code lines'}
-			class="absolute left-0 top-16 -z-20 opacity-10 lg:left-12 lg:h-4/5 {showMenu ? 'hidden' : ''}"
+			class="absolute top-16 left-0 -z-20 opacity-10 lg:left-12 lg:h-4/5 {showMenu ? 'hidden' : ''}"
 			in:fade={{ delay: 4500 }} />
 		{#key data.url}
 			<main
@@ -135,13 +136,13 @@
 			</main>
 		{/key}
 		<footer
-			class="flex items-center overflow-hidden whitespace-nowrap border-t border-secondary"
+			class="border-secondary flex items-center overflow-hidden border-t whitespace-nowrap"
 			in:fly={{ y: 100, delay: 4500, duration: route ? 0 : 1000 }}>
 			<div class="relative flex w-screen items-center py-3 md:py-4 lg:py-6">
 				<div
-					class="absolute left-0 top-0 z-50 h-full w-1/12 bg-linear-to-r from-light via-light via-25% to-transparent transition-colors dark:from-dark dark:via-dark">
+					class="from-light via-light dark:from-dark dark:via-dark absolute top-0 left-0 z-50 h-full w-1/12 bg-linear-to-r via-25% to-transparent transition-colors">
 				</div>
-				<ul class="inline-flex w-max animate-infinite-scroll text-secondary">
+				<ul class="animate-infinite-scroll inline-flex w-max">
 					{#each data.technologies as technology}
 						<li class="mx-8 inline-flex md:mx-16 lg:mx-20">
 							<iconify-icon
@@ -151,7 +152,7 @@
 						</li>
 					{/each}
 				</ul>
-				<ul class="inline-flex w-max animate-infinite-scroll text-secondary" aria-hidden="true">
+				<ul class="animate-infinite-scroll inline-flex w-max" aria-hidden="true">
 					{#each data.technologies as technology}
 						<li class="mx-8 inline-flex md:mx-16 lg:mx-20">
 							<iconify-icon
@@ -162,7 +163,7 @@
 					{/each}
 				</ul>
 				<div
-					class="absolute right-0 top-0 z-50 h-full w-1/12 bg-linear-to-l from-light via-light via-25% to-transparent transition-colors dark:from-dark dark:via-dark">
+					class="from-light via-light dark:from-dark dark:via-dark absolute top-0 right-0 z-50 h-full w-1/12 bg-linear-to-l via-25% to-transparent transition-colors">
 				</div>
 			</div>
 		</footer>

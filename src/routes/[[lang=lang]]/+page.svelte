@@ -74,10 +74,10 @@
 				class="flex w-full items-center justify-between"
 				in:fade={{ duration: duration, delay: textDelay }}>
 				<h2
-					class="whitespace-nowrap font-mono text-xs font-extralight text-secondary dark:text-secondary md:text-sm lg:text-base">
+					class="whitespace-nowrap font-mono text-xs font-extralight md:text-sm lg:text-base">
 					{data.home.translations[0].subtitle}
 				</h2>
-				<div class="flex gap-2 text-xl text-secondary lg:text-2xl">
+				<div class="flex gap-2 text-xl lg:text-2xl">
 					<a href="https://github.com/vitormisumi" aria-label="GitHub">
 						<iconify-icon icon="mdi:github"></iconify-icon>
 					</a>

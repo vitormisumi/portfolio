@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
+	import { Button } from '$lib/components/ui/button';
+	import Input from '$lib/components/ui/input/input.svelte';
+	import Textarea from '$lib/components/ui/textarea/textarea.svelte';
 
 	let status = $state('');
 
@@ -51,11 +54,11 @@
 		</p>
 		<form class="flex w-full flex-col items-center gap-4" {onsubmit}>
 			<label class="grid w-full">
-				<input type="hidden" name="access_key" value="7636656c-4f9f-44f5-b099-851cd26215b4" />
+				<Input type="hidden" name="access_key" value="7636656c-4f9f-44f5-b099-851cd26215b4" />
 			</label>
 			<label class="grid w-full">
 				{page.params.lang === 'pt' ? 'Nome' : 'Name'}
-				<input
+				<Input
 					type="text"
 					name="name"
 					placeholder={page.params.lang === 'pt' ? 'Digite seu nome' : 'Type your name'}
@@ -63,7 +66,7 @@
 			</label>
 			<label class="grid w-full">
 				Email
-				<input
+				<Input
 					type="email"
 					name="email"
 					placeholder={page.params.lang === 'pt' ? 'Digite seu email' : 'Type your email'}
@@ -71,18 +74,17 @@
 			</label>
 			<label class="grid w-full">
 				{page.params.lang === 'pt' ? 'Mensagem' : 'Message'}
-				<textarea
+				<Textarea
 					name="message"
 					placeholder={page.params.lang === 'pt' ? 'Digite sua mensagem' : 'Type your message'}
 					required
-					rows="5"></textarea>
+					rows={5}></Textarea>
 			</label>
 			<input type="hidden" name="redirect" value="https://vitormisumi.com/thanks" />
 			<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
-			<button
-				class="rounded-sm bg-dark px-4 py-2 font-medium text-light hover:bg-dark/90 hover:text-light dark:bg-light dark:text-dark dark:hover:bg-light/90">
+			<Button>
 				{page.params.lang === 'pt' ? 'Enviar' : 'Send'}
-			</button>
+			</Button>
 		</form>
 		<p class="text-dark">{status}</p>
 	</div>
