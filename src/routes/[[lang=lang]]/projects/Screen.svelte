@@ -1,28 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import * as Carousel from '$lib/components/ui/carousel';
+	import { Skeleton } from '$lib/components/ui/skeleton';
 	import type { Project } from '$lib/types';
-	import { fly } from 'svelte/transition';
 
 	let { project }: { project: Project } = $props();
 
-	let selectedImageIndex = $state(0);
-	let selectedImage = $derived(project.images[selectedImageIndex]);
-	let scrollDirection: 'forward' | 'backward' = $state('forward');
-
-	function previousImage(i: number) {
-		if (i > 0) {
-			selectedImageIndex--;
-			scrollDirection = 'forward';
-		}
-	}
-
-	function nextImage(i: number) {
-		if (i < project.images.length) {
-			selectedImageIndex++;
-			scrollDirection = 'backward';
-		}
-	}
+	let imageLoading = $state(false);
 </script>
 
 <Carousel.Root
@@ -32,8 +16,16 @@
 	<Carousel.Content>
 		{#each project.images as image (image.id)}
 			<Carousel.Item>
+				{#if imageLoading}
+					<Skeleton class="h-full w-full rounded-lg border p-2" />
+				{/if}
 				<img
-					src="https://directus.vitormisumi.com/assets/{image.directus_files_id}?width=600&format=auto"
+					src="https://directus.vitormisumi.com/assets/{image.directus_files_id}?width={project.images_frame ===
+					'mobile'
+						? 400
+						: 800}&format=auto"
+					onloadstart={() => (imageLoading = true)}
+					onload={() => (imageLoading = false)}
 					alt={page.params.lang === 'pt' ? 'Screenshot do projeto' : 'Screenshot of project'}
 					class="rounded-lg border p-2" />
 			</Carousel.Item>
