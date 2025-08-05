@@ -23,7 +23,7 @@
 					onloadstart={() => (imageLoading = true)}
 					onload={() => (imageLoading = false)}
 					alt={page.params.lang === 'pt' ? 'Screenshot do projeto' : 'Screenshot of project'}
-					class="rounded-lg border p-2" />
+					class="rounded-lg border p-2 bg-secondary" />
 			</Carousel.Item>
 		{/each}
 	</Carousel.Content>
