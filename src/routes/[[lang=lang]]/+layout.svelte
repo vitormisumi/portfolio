@@ -128,9 +128,8 @@
 			in:fade={{ delay: 4500 }} />
 		{#key data.url}
 			<main
-				class="h-full overflow-hidden p-6 opacity-100 transition-opacity md:p-8 landscape:lg:p-24 landscape:xl:px-32 {showMenu
-					? 'pointer-events-none opacity-5'
-					: ''}"
+				class="h-full overflow-hidden p-6 transition-opacity md:p-8 landscape:lg:p-24 landscape:xl:px-32 {showMenu &&
+					'pointer-events-none opacity-5'}"
 				in:fade>
 				{@render children()}
 			</main>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import * as Carousel from '$lib/components/ui/carousel';
-	import { Skeleton } from '$lib/components/ui/skeleton';
 	import type { Project } from '$lib/types';
 
 	let { project }: { project: Project } = $props();
@@ -16,9 +15,6 @@
 	<Carousel.Content>
 		{#each project.images as image (image.id)}
 			<Carousel.Item>
-				{#if imageLoading}
-					<Skeleton class="h-full w-full rounded-lg border p-2" />
-				{/if}
 				<img
 					src="https://directus.vitormisumi.com/assets/{image.directus_files_id}?width={project.images_frame ===
 					'mobile'
