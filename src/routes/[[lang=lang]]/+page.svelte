@@ -24,7 +24,7 @@
 			duration = 1500;
 			profileImageDelay = 1500;
 			textDelay = 3000;
-			projectsDelay = 4500;
+			projectsDelay = 4000;
 		}
 		pageLoaded = true;
 	});
@@ -89,14 +89,14 @@
 				</div>
 			</div>
 		</div>
-		<div in:fade={{ delay: projectsDelay }}>
+		<div>
 			<Carousel.Root
 				plugins={[plugin]}
 				onmouseenter={plugin.stop}
 				onmouseleave={plugin.reset}
 				class="max-w-xs md:max-w-sm lg:max-w-md landscape:max-w-64 landscape:md:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md">
 				<Carousel.Content>
-					{#each data.home.projects as project, i}
+					{#each data.home.projects as project}
 						<Carousel.Item>
 							<img
 								src="https://directus.vitormisumi.com/assets/{project.home_image
