@@ -89,7 +89,7 @@
 				</div>
 			</div>
 		</div>
-		<div>
+		<div in:fade={{ delay: projectsDelay }}>
 			<Carousel.Root
 				plugins={[plugin]}
 				onmouseenter={plugin.stop}
