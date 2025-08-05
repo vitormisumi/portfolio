@@ -25,11 +25,11 @@
 	}
 </script>
 
-<Carousel.Root>
-	<Carousel.Content
-		class={project.images_frame === 'mobile'
-			? 'aspect-[0.46] h-[50vh] justify-self-center landscape:h-[60vh] landscape:md:h-[50vh]'
-			: 'aspect-[1.6] landscape:w-[25vw] landscape:lg:w-[30vw]'}>
+<Carousel.Root
+	class={project.images_frame === 'mobile'
+		? 'aspect-[0.46] h-[50vh] justify-self-center landscape:h-[60vh] landscape:md:h-[50vh]'
+		: 'aspect-[1.6] landscape:w-[25vw] landscape:lg:w-[30vw]'}>
+	<Carousel.Content>
 		{#each project.images as image (image.id)}
 			<Carousel.Item>
 				<img
