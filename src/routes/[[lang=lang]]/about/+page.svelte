@@ -34,7 +34,7 @@
 			{#each data.about_sections as section}
 				<li>
 					<button
-						class="list-item text-left hover:text-accent {section.id === selectedSection.id
+						class="hover:text-accent list-item text-left {section.id === selectedSection.id
 							? 'underline underline-offset-4'
 							: ''}"
 						onclick={() => (selectedSection = section)}>
@@ -55,7 +55,7 @@
 					<div class="relative">
 						<div>
 							<div
-								class="pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-linear-to-b from-transparent to-light dark:to-dark">
+								class="to-light dark:to-dark pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-linear-to-b from-transparent">
 							</div>
 							<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 							<div
@@ -73,7 +73,7 @@
 				</div>
 				{#if selectedSection.images.length}
 					<figure
-						class="grid rounded-lg border border-secondary p-2 shadow-2xl shadow-secondary/20 md:p-4 landscape:p-2">
+						class="border-secondary shadow-secondary/20 grid rounded-lg border p-2 shadow-2xl md:p-4 landscape:p-2">
 						<div class="h-full w-full"></div>
 						{#key currentImageIndex}
 							<img
