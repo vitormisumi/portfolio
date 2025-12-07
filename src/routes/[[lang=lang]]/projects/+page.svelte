@@ -15,7 +15,7 @@
 			{#each data.projects as project, i}
 				<li>
 					<button
-						class="list-item max-w-32 truncate text-left hover:text-accent md:max-w-44 lg:max-w-60 {project.id ===
+						class="hover:text-accent list-item max-w-32 truncate text-left md:max-w-44 lg:max-w-60 {project.id ===
 						selectedProject.id
 							? 'underline underline-offset-4'
 							: ''}"
@@ -33,16 +33,15 @@
 		class="col-span-3 grid w-full max-w-xl place-items-center landscape:max-w-full landscape:place-items-start">
 		{#key selectedProject}
 			<article
-				class="grid w-full max-w-lg place-items-start gap-4 landscape:max-w-full landscape:grid-cols-2 landscape:gap-8"
+				class="grid w-full max-w-xl place-items-start gap-4 landscape:max-w-full landscape:grid-cols-2 landscape:gap-8"
 				in:fade>
 				<div class="grid w-full gap-4">
 					<div>
 						<a
 							href={selectedProject.link}
-							class="font-roboto text-lg font-medium text-dark dark:text-light"
+							class="font-roboto text-dark dark:text-light text-lg font-medium"
 							>{selectedProject.translations[0].title}</a>
-						<h3
-							class="font-mono text-xs font-extralight capitalize">
+						<h3 class="font-mono text-xs font-extralight capitalize">
 							<time datetime={selectedProject.start_date}>
 								{new Date(selectedProject.start_date)
 									.toLocaleDateString(selectedProject.translations[0].languages_code, {
@@ -62,7 +61,7 @@
 							</time>
 						</h3>
 					</div>
-					<div class="max-h-[25vh] w-full landscape:max-h-[50vh]">
+					<div class="content max-h-[25vh] w-full overflow-auto text-base landscape:max-h-[50vh]">
 						{@html selectedProject.translations[0].description}
 					</div>
 				</div>
@@ -71,3 +70,21 @@
 		{/key}
 	</div>
 </section>
+
+<style>
+	.content :global {
+		ul {
+			list-style: disc;
+			font-family: 'JetBrains Mono', monospace;
+			font-weight: 100;
+			font-size: 0.875rem;
+			margin-left: 1.5rem;
+			margin-top: 1rem;
+		}
+		@media (orientation: landscape) {
+			ul {
+				font-size: 1rem;
+			}
+		}
+	}
+</style>

@@ -3,6 +3,6 @@
 </script>
 
 <section class="flex h-screen flex-col items-center justify-center gap-8">
-	<p>Oops, um erro aconteceu.</p>
+	<p>Página não encontrada.</p>
 	<Button onclick={() => history.back()}>Voltar</Button>
 </section>

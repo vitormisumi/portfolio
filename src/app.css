@@ -162,6 +162,7 @@
 	}
 	body {
 		@apply bg-light dark:bg-dark transition-colors;
+		scrollbar-width: thin;
 	}
 	a,
 	button {
