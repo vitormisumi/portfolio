@@ -74,7 +74,7 @@
 						{data.home.name}
 					</a>
 					<div
-						class="flex w-full flex-col justify-end gap-4 landscape:gap-12 text-sm landscape:flex-row landscape:text-base">
+						class="flex w-full flex-col justify-end gap-4 text-sm landscape:flex-row landscape:gap-12 landscape:text-base">
 						<a
 							href="/{lang}/about"
 							class="flex transition-colors {route === 'about' ? 'text-accent' : ''}"
@@ -113,14 +113,14 @@
 								lang="pt"
 								aria-label="Mudar para Português"
 								aria-current={page.params.lang === 'pt' ? 'true' : 'false'}
-								class="pr-2"
+								class="pr-2 {page.params.lang === 'pt' ? 'text-accent' : ''}"
 								onclick={() => (showMenu = false)}>PT</a>
 							<a
 								href="/en/{route}"
 								lang="en"
 								aria-label="Change to English"
 								aria-current={page.params.lang === 'en' ? 'true' : 'false'}
-								class="pl-2"
+								class="pl-2 {page.params.lang === 'en' ? 'text-accent' : ''}"
 								onclick={() => (showMenu = false)}>EN</a>
 						</div>
 					</div>
