@@ -35,7 +35,7 @@
 {#if pageLoaded}
 	<div class="flex h-full w-full flex-col items-center justify-around landscape:flex-row">
 		<div
-			class="relative flex aspect-[1.6] w-full max-w-xs flex-col justify-end gap-2 md:max-w-sm lg:max-w-md landscape:max-w-64 landscape:md:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md">
+			class="relative flex aspect-[1.6] w-full max-w-xs flex-col justify-end gap-2 md:max-w-sm lg:max-w-md landscape:max-w-64 landscape:md:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md landscape:2xl:max-w-xl">
 			<div class="relative flex h-full flex-col items-center justify-end">
 				<div class="relative w-full" in:fly={{ y: 500, duration: duration }}>
 					<p class="text-dark dark:text-light w-full text-xs lg:text-base">
@@ -94,7 +94,7 @@
 				plugins={[plugin]}
 				onmouseenter={plugin.stop}
 				onmouseleave={plugin.reset}
-				class="max-w-xs md:max-w-sm lg:max-w-md landscape:max-w-64 landscape:md:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md">
+				class="max-w-xs md:max-w-sm lg:max-w-md landscape:max-w-64 landscape:md:max-w-xs landscape:lg:max-w-sm landscape:xl:max-w-md landscape:2xl:max-w-xl">
 				<Carousel.Content>
 					{#each data.home.projects as project}
 						<Carousel.Item>

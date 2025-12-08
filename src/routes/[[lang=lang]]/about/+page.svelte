@@ -1,30 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import Slideshow from './Slideshow.svelte';
 
 	let { data } = $props();
 
 	let selectedSection = $state(data.about_sections[0]);
-	let currentImageIndex = $state(0);
-	let currentImage = $derived(selectedSection.images[currentImageIndex]);
-
-	function imageSlideshow() {
-		setInterval(() => {
-			if (currentImageIndex >= selectedSection.images.length - 1) {
-				currentImageIndex = 0;
-			} else {
-				currentImageIndex += 1;
-			}
-			// imageLoaded = false;
-		}, 5000);
-	}
-
-	onMount(() => {
-		imageSlideshow();
-	});
-
-	// let imageLoaded = $state(false);
 </script>
 
 <section
@@ -34,7 +15,8 @@
 			{#each data.about_sections as section}
 				<li>
 					<button
-						class="hover:text-accent list-item text-left {section.id === selectedSection.id
+						class="hover:text-accent list-item cursor-pointer text-left {section.id ===
+						selectedSection.id
 							? 'underline underline-offset-4'
 							: ''}"
 						onclick={() => (selectedSection = section)}>
@@ -47,45 +29,25 @@
 	<div class="col-span-3 flex w-full justify-center">
 		{#key selectedSection}
 			<article
-				class="grid max-w-lg place-items-center gap-4 landscape:max-w-full landscape:grid-cols-2 landscape:place-items-start landscape:gap-8"
+				class="flex h-[80vh] max-w-xl flex-col place-items-center gap-4 landscape:grid landscape:max-w-full landscape:grid-cols-2 landscape:place-items-start landscape:gap-8"
 				aria-labelledby="article-title"
 				in:fade>
-				<div class="grid gap-4 {selectedSection.images.length ? '' : 'landscape:col-span-2'}">
+				<div
+					class="flex flex-col gap-4 overflow-auto mask-b-from-80% landscape:max-h-[50vh] {selectedSection
+						.images.length
+						? ''
+						: 'landscape:col-span-2'}">
 					<h2 id="article-title">{selectedSection.translations[0].section_title}</h2>
-					<div class="relative">
-						<div>
-							<div
-								class="to-light dark:to-dark pointer-events-none absolute bottom-0 left-0 h-10 w-full bg-linear-to-b from-transparent">
-							</div>
-							<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-							<div
-								class="w-full overflow-y-auto pb-10 landscape:max-h-[50vh] {selectedSection.images
-									.length
-									? 'max-h-[25vh]'
-									: 'max-h-[65vh]'}"
-								tabindex="0"
-								role="region"
-								aria-label={page.params.lang === 'pt' ? 'Texto rolável' : 'Scrollable text'}>
-								{@html selectedSection.translations[0].section_text}
-							</div>
-						</div>
+					<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+					<div
+						class="pb-16 landscape:pb-24"
+						tabindex="0"
+						role="region"
+						aria-label={page.params.lang === 'pt' ? 'Texto rolável' : 'Scrollable text'}>
+						{@html selectedSection.translations[0].section_text}
 					</div>
 				</div>
-				{#if selectedSection.images.length}
-					<figure
-						class="border-secondary shadow-secondary/20 grid rounded-lg border p-2 shadow-2xl md:p-4 landscape:p-2">
-						<div class="h-full w-full"></div>
-						{#key currentImageIndex}
-							<img
-								src="https://directus.vitormisumi.com/assets/{currentImage.directus_files_id}?width=600&height=450&format=auto"
-								alt={page.params.lang === 'pt'
-									? 'Vitor trabalhando com futebol'
-									: 'Vitor working with football'}
-								class="col-start-1 row-start-1 w-full rounded-sm"
-								transition:fade={{ duration: 1000 }} />
-						{/key}
-					</figure>
-				{/if}
+				<Slideshow {selectedSection} />
 			</article>
 		{/key}
 	</div>

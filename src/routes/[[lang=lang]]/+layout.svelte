@@ -45,13 +45,14 @@
 			? 'Portfólio do desenvolvedor web Vitor Misumi'
 			: 'Portfolio of the web developer Vitor Misumi'} />
 </svelte:head>
+
 <div class="relative flex h-dvh flex-col justify-between overflow-hidden">
 	{#if pageLoaded}
 		<header
 			class="from-dark/10 dark:from-light/5 bg-linear-to-b to-transparent px-6 py-4 landscape:py-2 landscape:lg:px-12 landscape:lg:py-8"
 			in:fly={{ y: -100, delay: 4500, duration: route ? 0 : 1000 }}>
 			<button
-				class="landscape:hidden"
+				class="cursor-pointer landscape:hidden"
 				aria-label={page.params.lang === 'pt' ? 'Menu de navegação' : 'Navigation menu'}
 				aria-expanded={showMenu || innerWidth > innerHeight ? 'true' : 'false'}
 				aria-hidden={innerWidth > innerHeight ? 'true' : 'false'}
@@ -62,7 +63,7 @@
 			{#if showMenu || innerWidth > innerHeight}
 				<nav
 					id="primaryNav"
-					class="flex w-full flex-col items-start justify-between gap-4 text-nowrap landscape:flex-row landscape:items-center {showMenu
+					class="flex w-full flex-col items-start justify-between gap-12 text-nowrap landscape:flex-row landscape:items-center {showMenu
 						? 'fixed'
 						: ''}"
 					transition:slide>
@@ -73,23 +74,30 @@
 						{data.home.name}
 					</a>
 					<div
-						class="flex w-1/2 flex-col justify-around gap-2 text-sm landscape:flex-row landscape:text-base">
+						class="flex w-full flex-col justify-end gap-4 text-sm landscape:flex-row landscape:gap-12 landscape:text-base">
 						<a
 							href="/{lang}/about"
-							class={route === 'about' ? 'underline underline-offset-4' : ''}
+							class="flex transition-colors {route === 'about' ? 'text-accent' : ''}"
 							onclick={() => (showMenu = false)}>
-							{lang === 'pt' ? 'Sobre mim' : 'About me'}
+							<span>/</span>
+							{lang === 'pt' ? 'sobre' : 'about'}
 						</a>
 						<a
 							href="/{lang}/projects"
-							class={route === 'projects' ? 'underline underline-offset-4' : ''}
-							onclick={() => (showMenu = false)}>{lang === 'pt' ? 'Projetos' : 'Projects'}</a>
+							class="flex transition-colors {route === 'projects' ? 'text-accent' : ''}"
+							onclick={() => (showMenu = false)}>
+							<span>/</span>
+							{lang === 'pt' ? 'projetos' : 'projects'}
+						</a>
 						<a
 							href="/{lang}/contact"
-							class={route === 'contact' ? 'underline underline-offset-4' : ''}
-							onclick={() => (showMenu = false)}>{lang === 'pt' ? 'Contato' : 'Contact'}</a>
+							class="flex transition-colors {route === 'contact' ? 'text-accent' : ''}"
+							onclick={() => (showMenu = false)}>
+							<span>/</span>
+							{lang === 'pt' ? 'contato' : 'contact'}
+						</a>
 					</div>
-					<div class="flex flex-col gap-4 landscape:flex-row landscape:gap-8">
+					<div class="flex min-w-fit flex-col gap-4 landscape:flex-row landscape:gap-8">
 						<Button
 							variant="ghost"
 							size="icon"
@@ -105,14 +113,14 @@
 								lang="pt"
 								aria-label="Mudar para Português"
 								aria-current={page.params.lang === 'pt' ? 'true' : 'false'}
-								class="pr-2"
+								class="pr-2 {page.params.lang === 'pt' ? 'text-accent' : ''}"
 								onclick={() => (showMenu = false)}>PT</a>
 							<a
 								href="/en/{route}"
 								lang="en"
 								aria-label="Change to English"
 								aria-current={page.params.lang === 'en' ? 'true' : 'false'}
-								class="pl-2"
+								class="pl-2 {page.params.lang === 'en' ? 'text-accent' : ''}"
 								onclick={() => (showMenu = false)}>EN</a>
 						</div>
 					</div>
