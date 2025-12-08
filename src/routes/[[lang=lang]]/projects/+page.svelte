@@ -29,13 +29,13 @@
 			{/each}
 		</ul>
 	</nav>
-	<div
-		class="col-span-3 grid w-full max-w-xl place-items-center landscape:max-w-full landscape:place-items-start">
+	<div class="col-span-3 flex w-full justify-center">
 		{#key selectedProject}
 			<article
-				class="grid w-full max-w-xl place-items-start gap-4 landscape:max-w-full landscape:grid-cols-2 landscape:gap-8"
+				class="flex h-[80vh] max-w-xl flex-col place-items-center gap-4 landscape:grid landscape:max-w-full landscape:grid-cols-2 landscape:place-items-start landscape:gap-8"
 				in:fade>
-				<div class="grid w-full gap-4">
+				<div
+					class="flex w-full flex-1 flex-col gap-4 overflow-auto mask-b-from-80% landscape:max-h-[50vh]">
 					<div>
 						<a
 							href={selectedProject.link}
@@ -61,7 +61,7 @@
 							</time>
 						</h3>
 					</div>
-					<div class="content max-h-[25vh] w-full overflow-auto text-base landscape:max-h-[50vh]">
+					<div class="content pb-16 landscape:pb-24">
 						{@html selectedProject.translations[0].description}
 					</div>
 				</div>

@@ -33,7 +33,8 @@
 				aria-labelledby="article-title"
 				in:fade>
 				<div
-					class="overflow-auto mask-b-from-80% landscape:max-h-[50vh] {selectedSection.images.length
+					class="flex flex-col gap-4 overflow-auto mask-b-from-80% landscape:max-h-[50vh] {selectedSection
+						.images.length
 						? ''
 						: 'landscape:col-span-2'}">
 					<h2 id="article-title">{selectedSection.translations[0].section_title}</h2>
