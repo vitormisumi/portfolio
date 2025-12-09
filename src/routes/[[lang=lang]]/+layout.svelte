@@ -34,6 +34,19 @@
 
 	let innerWidth = $state(0);
 	let innerHeight = $state(0);
+
+	import { onNavigate } from '$app/navigation';
+
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -79,22 +92,19 @@
 							href="/{lang}/about"
 							class="flex transition-colors {route === 'about' ? 'text-accent' : ''}"
 							onclick={() => (showMenu = false)}>
-							<span>/</span>
-							{lang === 'pt' ? 'sobre' : 'about'}
+							{lang === 'pt' ? '/sobre' : '/about'}
 						</a>
 						<a
 							href="/{lang}/projects"
 							class="flex transition-colors {route === 'projects' ? 'text-accent' : ''}"
 							onclick={() => (showMenu = false)}>
-							<span>/</span>
-							{lang === 'pt' ? 'projetos' : 'projects'}
+							{lang === 'pt' ? '/projetos' : '/projects'}
 						</a>
 						<a
 							href="/{lang}/contact"
 							class="flex transition-colors {route === 'contact' ? 'text-accent' : ''}"
 							onclick={() => (showMenu = false)}>
-							<span>/</span>
-							{lang === 'pt' ? 'contato' : 'contact'}
+							{lang === 'pt' ? '/contato' : '/contact'}
 						</a>
 					</div>
 					<div class="flex min-w-fit flex-col gap-4 landscape:flex-row landscape:gap-8">

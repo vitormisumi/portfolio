@@ -176,3 +176,9 @@
 		@apply bg-secondary/20 text-dark placeholder:text-secondary/70 dark:text-light rounded-sm px-2 py-1 placeholder:text-sm;
 	}
 }
+
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+	animation-duration: 0.8s;
+}

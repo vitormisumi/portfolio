@@ -80,10 +80,16 @@
 					{data.home.translations[0].subtitle}
 				</h2>
 				<div class="flex gap-2 text-xl lg:text-2xl">
-					<a href="https://github.com/vitormisumi" aria-label="GitHub">
+					<a
+						href="https://github.com/vitormisumi"
+						aria-label="GitHub"
+						style:view-transition-name="github">
 						<iconify-icon icon="mdi:github"></iconify-icon>
 					</a>
-					<a href="https://www.linkedin.com/in/vitormisumi" aria-label="LinkedIn">
+					<a
+						href="https://www.linkedin.com/in/vitormisumi"
+						aria-label="LinkedIn"
+						style:view-transition-name="linkedin">
 						<iconify-icon icon="mdi:linkedin"></iconify-icon>
 					</a>
 				</div>
