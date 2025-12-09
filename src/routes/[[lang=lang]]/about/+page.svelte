@@ -52,3 +52,16 @@
 		{/key}
 	</div>
 </section>
+
+<div
+	class="fixed top-4 right-6 flex gap-2 text-xl lg:text-2xl landscape:top-auto landscape:right-auto landscape:bottom-16 landscape:left-6 landscape:flex-col">
+	<a href="https://github.com/vitormisumi" aria-label="GitHub" style:view-transition-name="github">
+		<iconify-icon icon="mdi:github"></iconify-icon>
+	</a>
+	<a
+		href="https://www.linkedin.com/in/vitormisumi"
+		aria-label="LinkedIn"
+		style:view-transition-name="linkedin">
+		<iconify-icon icon="mdi:linkedin"></iconify-icon>
+	</a>
+</div>
