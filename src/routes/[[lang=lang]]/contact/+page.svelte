@@ -82,7 +82,7 @@
 			</label>
 			<input type="hidden" name="redirect" value="https://vitormisumi.com/thanks" />
 			<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
-			<Button>
+			<Button type="submit">
 				{page.params.lang === 'pt' ? 'Enviar' : 'Send'}
 			</Button>
 		</form>
